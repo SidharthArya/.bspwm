@@ -1,0 +1,89 @@
+super + shift + Return
+	st -f "Space Mono:size=9"
+
+super + a
+	dmenu_run -fn "Space Mono:size=9"
+
+
+super + shift + r; r
+	bspc wm -r
+
+super + shift + r; w
+	bspc wm -r
+
+super + shift + r; k
+	pkill -USR1 -x sxhkd
+
+super + shift + q; q 
+	bspc quit
+
+super + shift + q; s
+	~/.config/sxhkd/scripts/session_exit.sh
+super + {_,shift + }c
+	bspc node -{c,k}
+
+super + m
+	bspc desktop -l next
+
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+super + Return
+	bspc node -s biggest
+
+
+super + {t,shift + t,f,x}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + ctrl + {z,x,s,a}
+	bspc node -g {marked,locked,sticky,private}
+
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+super + {_,shift + } Tab
+	bspc node -f {next.local,prev.local}
+
+
+# Desktops 
+super + {1-9,0}
+	~/.config/sxhkd/scripts/desktop.sh {1-9,0}
+
+super + shift + {1-9,0}
+	bspc node -d '{1-9,0}'
+
+super + bracket{left,right}
+	bspc monitor -f {next,prev}
+
+super + shift + bracket{left,right}
+	bspc node focused -m {next,prev} -f
+
+super + grave
+	bspc desktop last.local -f
+
+super + d; {o,Return,t,m,n}
+	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,class Scratchpad_Terminal st -c Scratchpad_Terminal -f SpaceMono -e tmux,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
+super + d; f
+	  st -e nnn
+super + d; p
+	  st -e htop
+super + d; a
+	  pavucontrol
+super + {_,shift +} z
+	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh}
