@@ -16,8 +16,12 @@ bspc config pointer_follows_monitor true
 bspc config gapless_monocle true
 bspc config borderless_monocle true
 
-gocryptfs -extpass 'kdialog --password Files' ~/Private/Drive/Personal ~/Documents && (
+gocryptfs -extpass 'kdialog --password Files' ~/Private/Drive/Personal ~/Documents &&
+    (
     emacs --config tracking & 
-    st -e ~/.local/scripts/sync.sh
+    st -e sh ~/.local/scripts/sync.sh &
+    ) ||
+        (
+            kdialog --msgbox "Hello Guest";
+        )
     
-    )
