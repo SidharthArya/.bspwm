@@ -16,4 +16,4 @@ bspc config pointer_follows_monitor true
 bspc config gapless_monocle true
 bspc config borderless_monocle true
 
-gocryptfs -extpass 'zenity --password' ~/Private/Drive/Personal ~/Documents &
+gocryptfs -extpass 'kdialog --password Files' ~/Private/Drive/Personal ~/Documents && emacs --config tracking &

@@ -82,8 +82,33 @@ super + d; {o,Return,t,m,n}
 super + d; f
 	  st -e nnn
 super + d; p
-	  st -e htop
-super + d; a
-	  pavucontrol
+	  kdialog --sorry "$(ps -eo comm,%cpu,%mem,pid | dmenu -l 10 | awk '{print $4}')"
+
 super + {_,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh}
+super + d; w
+	 sh ~/.config/sxhkd/scripts/windows.sh
+
+super + d; c
+	 sh ~/.config/sxhkd/scripts/configopen.sh
+
+super + d; r
+	 emacs --script ~/.emacs.d/scripts/quote
+
+super + d; N
+	 sh ~/.local/scripts/timenotify.sh
+
+super + d; k
+	 ps -aux 
+super + d; {s, shift + s}
+	 {sh ~/.config/sxhkd/scripts/scripts.sh | dmenu | xargs -I\{\} sh \{\},sh ~/.config/sxhkd/scripts/scripts.sh | dmenu | xargs -I\{\} emacsclient -n \{\}}
+
+super + s;s
+      sh ~/.config/sxhkd/scripts/tts.sh start
+      
+super + s; shift + s
+      sh ~/.config/sxhkd/scripts/tts.sh stop
+      
+super + s; p
+      pavucontrol
+      
