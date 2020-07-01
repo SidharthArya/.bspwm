@@ -17,8 +17,13 @@ super + shift + r; k
 super + shift + q; q 
 	bspc quit
 
+super + shift + q; p
+	sh ~/.config/sxhkd/scripts/
+
 super + shift + q; s
-	~/.config/sxhkd/scripts/session_exit.sh
+	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
+
+        
 super + {_,shift + }c
 	bspc node -{c,k}
 
@@ -111,4 +116,4 @@ super + s; shift + s
       
 super + s; p
       pavucontrol
-      
+
