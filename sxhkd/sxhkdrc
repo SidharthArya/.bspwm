@@ -15,13 +15,16 @@ super + shift + r; k
 	pkill -USR1 -x sxhkd
 
 super + shift + q; q 
-	bspc quit
+	sh ~/.config/sxhkd/scripts/session_exit.sh && bspc quit
 
 super + shift + q; p
-	sh ~/.config/sxhkd/scripts/
+	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
 
 super + shift + q; s
 	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
+
+super + shift + q; r
+	sh ~/.config/sxhkd/scripts/session_exit.sh && restart
 
         
 super + {_,shift + }c
@@ -89,6 +92,9 @@ super + d; f
 super + d; p
 	  kdialog --sorry "$(ps -eo comm,%cpu,%mem,pid | dmenu -l 10 | awk '{print $4}')"
 
+super + d; r
+      st -e sh ~/.local/scripts/sync.sh
+      
 super + {_,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh}
 super + d; w
