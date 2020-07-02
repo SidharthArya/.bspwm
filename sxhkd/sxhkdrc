@@ -4,7 +4,6 @@ super + shift + Return
 super + a
 	dmenu_run -fn "Space Mono:size=9"
 
-
 super + shift + r; r
 	bspc wm -r
 
@@ -16,6 +15,9 @@ super + shift + r; k
 
 super + shift + q; q 
 	sh ~/.config/sxhkd/scripts/session_exit.sh && bspc quit
+
+super + shift + q; shift + q 
+	bspc quit
 
 super + shift + q; p
 	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
@@ -124,4 +126,10 @@ super + s; shift + s
       
 super + s; p
       pavucontrol
+
+super + d; e; i
+      bspc node -i
+
+super + d; e; d
+      bspc node .leaf.\!window -k
 
