@@ -90,7 +90,8 @@ super + grave
 super + d; {o,Return,t,m,n}
 	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,class Scratchpad_Terminal st -c Scratchpad_Terminal -f SpaceMono -e tmux,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
 super + d; f
-	  st -e nnn
+	  emacsclient -c --eval "(dired \"~\")" 
+
 super + d; p
 	  kdialog --sorry "$(ps -eo comm,%cpu,%mem,pid | dmenu -l 10 | awk '{print $4}')"
 
