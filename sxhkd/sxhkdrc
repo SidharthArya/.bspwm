@@ -95,7 +95,7 @@ super + d; f
 super + d; p
 	  kdialog --sorry "$(ps -eo comm,%cpu,%mem,pid | dmenu -l 10 | awk '{print $4}')"
 
-super + d; r
+super + d; shift + r
       st -e sh ~/.local/scripts/sync.sh
       
 super + {_,shift +} z
