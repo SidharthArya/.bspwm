@@ -27,5 +27,6 @@ if [ "$id" == "" ]
  then
 		 exec $arg3;
 else
-				bspc node $(echo $id| sed 's/.x.......1//g') -g hidden -d focused -f
+    NODE="$(echo $id| sed 's/.x.......1//g')"
+    bspc node $NODE -g hidden -d focused  -f
 fi
