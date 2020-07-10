@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-#
 arg1=$1
 IFS=$'\n'
 EDITOR="emacsclient -n"
@@ -14,6 +12,9 @@ case $arg1 in
         ;;
     sxhkd)
         echo ~/.config/sxhkd/sxhkdrc
+        ;;
+    xmonad)
+        echo ~/.xmonad/xmonad.hs
         ;;
     emacs)
         echo ~/.emacs.d/init.org
