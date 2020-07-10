@@ -28,5 +28,10 @@ if [ "$id" == "" ]
 		 exec $arg3;
 else
     NODE="$(echo $id| sed 's/.x.......1//g')"
-    bspc node $NODE -g hidden -d focused  -f
+    if [ "$(bspc query -N -d focused | grep $NODE | wc -l)" == "1" ];
+    then
+        bspc node $NODE -g hidden -d focused  -f
+    else
+        bspc node $NODE -g hidden=off -d focused  -f
+    fi
 fi
