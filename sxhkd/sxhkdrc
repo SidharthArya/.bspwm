@@ -108,8 +108,10 @@ super + d; c
 	 sh ~/.config/sxhkd/scripts/configopen.sh
 
 super + d; r
-	 emacs --script ~/.emacs.d/scripts/quote
+	 emacs --script ~/.emacs.d/scripts/daily
 
+super + d; q
+	 emacs --script ~/.emacs.d/scripts/quote
 super + d; N
 	 sh ~/.local/scripts/timenotify.sh
 
