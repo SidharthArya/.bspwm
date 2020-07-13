@@ -5,7 +5,7 @@ TTS_COMMAND_ARGS="--tts"
 #"flite_cmu_us_slt"
 case "$1" in
     start)
-        for i in "$(xsel | sed 's/\./\.\n/g')"; 
+        for i in "$(xsel |  sed 's/$/./g' | sed 's/\./\.\n/g')"; 
         do
             while [[ -f /tmp/tts-play ]];
             do
