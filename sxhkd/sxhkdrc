@@ -39,7 +39,7 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 super + Return
-	bspc node -s biggest
+	bspc node -s biggest.local
 
 
 super + {t,shift + t,f,x}
@@ -136,3 +136,5 @@ super + d; e; i
 super + d; e; d
       bspc node .leaf.\!window -k
 
+super + d; e; i
+      bspc node -i
