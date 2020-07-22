@@ -2,9 +2,11 @@
 arg1=$1
 IFS=$'\n'
 EDITOR="emacsclient -n"
+DMENU_COMMAND="rofi"
+DMENU_COMMAND_ARGS="-dmenu"
 if [[ "$arg1" == "" ]];
 then
-    cat ~/.config/sxhkd/scripts/configopen.sh | grep ^\s*.*\)$ | tr -d "\)* " | dmenu | xargs -I{} sh ~/.config/sxhkd/scripts/configopen.sh {}
+    cat ~/.config/sxhkd/scripts/configopen.sh | grep ^\s*.*\)$ | tr -d "\)* " | $DMENU_COMMAND $DMENU_COMMAND_ARGS | xargs -I{} sh ~/.config/sxhkd/scripts/configopen.sh {}
 else
 case $arg1 in
     bspwm)
@@ -30,6 +32,12 @@ case $arg1 in
         ;;
     tracking)
         echo ~/Documents/Org/Personal/tracking.el
+        ;;
+    polybar)
+        echo ~/.config/polybar/config
+        ;;
+    rofi)
+        echo ~/.config/rofi/config.rasi
         ;;
 esac | xargs -I{} emacsclient -n {}
 fi

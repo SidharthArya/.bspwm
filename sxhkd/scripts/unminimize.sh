@@ -5,5 +5,5 @@ do
 	NAME="$(xprop -id $id | grep ^WM_NAME | awk -F\= '{print $NF}' | tr -d \")"
 	CLASS="$(xprop -id $id | grep ^WM_CLASS | awk -F\= '{print $NF}' | tr -d \")"
 	echo $id $CLASS $NAME
-done | dmenu -l 10 | awk '{print $1}' | xargs -I{} bspc node {} -g hidden -f
+done | rofi -dmenu | awk '{print $1}' | xargs -I{} bspc node {} -g hidden -f
 

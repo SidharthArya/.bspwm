@@ -1,8 +1,11 @@
 super + shift + Return
 	st -f "Space Mono:size=9"
 
+super + shift + a
+	rofi -show drun 
 super + a
-	dmenu_run -fn "Space Mono:size=9"
+	rofi -show run 
+        #dmenu_run -fn "Space Mono:size=9"
 
 super + shift + r; r
 	bspc wm -r
@@ -28,6 +31,8 @@ super + shift + q; s
 super + shift + q; r
 	sh ~/.config/sxhkd/scripts/session_exit.sh && restart
 
+super + shift + q; l
+      dm-tool lock 
         
 super + {_,shift + }c
 	bspc node -{c,k}
@@ -102,7 +107,8 @@ super + {_,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh}
 
 super + d; w
-	 sh ~/.config/sxhkd/scripts/windows.sh
+      rofi -show window
+	 #sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
 	 sh ~/.config/sxhkd/scripts/configopen.sh
@@ -138,3 +144,10 @@ super + d; e; d
 
 super + d; e; i
       bspc node -i
+
+
+XF86AudioRaiseVolume
+        sh ~/.config/sxhkd/scripts/volume.sh increase
+        
+XF86AudioLowerVolume
+        sh ~/.config/sxhkd/scripts/volume.sh decrease
