@@ -113,11 +113,7 @@ super + d; w
 super + d; c
 	 sh ~/.config/sxhkd/scripts/configopen.sh
 
-super + d; r
-	 emacs --script ~/.emacs.d/scripts/daily
 
-super + d; q
-	 emacs --script ~/.emacs.d/scripts/quote
 super + d; N
 	 sh ~/.local/scripts/timenotify.sh
 
@@ -151,3 +147,13 @@ XF86AudioRaiseVolume
         
 XF86AudioLowerVolume
         sh ~/.config/sxhkd/scripts/volume.sh decrease
+
+
+
+super + r; d
+	 emacs --script ~/.emacs.d/scripts/daily
+super + r; q
+	 emacs --script ~/.emacs.d/scripts/quote
+         
+super + r; t
+	 sh ~/.local/scripts/timenotify.sh
