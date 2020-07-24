@@ -4,8 +4,7 @@ super + shift + Return
 super + shift + a
 	rofi -show drun 
 super + a
-	rofi -show run 
-        #dmenu_run -fn "Space Mono:size=9"
+        dmenu_run -fn "Space Mono:size=9"
 
 super + shift + r; r
 	bspc wm -r
@@ -157,3 +156,6 @@ super + r; q
          
 super + r; t
 	 sh ~/.local/scripts/timenotify.sh
+
+super + Print
+      scrot -e
