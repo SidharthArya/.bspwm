@@ -4,8 +4,7 @@ super + shift + Return
 super + shift + a
 	rofi -show drun 
 super + a
-        dmenu_run -fn "Space Mono:size=9"
-
+      sh ~/.config/sxhkd/scripts/run.sh
 super + shift + r; r
 	bspc wm -r
 
@@ -74,7 +73,8 @@ super + {Left,Down,Up,Right}
 super + {_,shift + } Tab
 	bspc node -f {next.local,prev.local}
 
-
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
 # Desktops 
 super + {1-9,0}
 	~/.config/sxhkd/scripts/desktop.sh {1-9,0}
@@ -159,3 +159,15 @@ super + r; t
 
 super + Print
       scrot -e
+
+
+# Presel
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+super + ctrl + space
+	bspc node -p cancel
