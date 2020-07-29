@@ -157,6 +157,11 @@ super + r; q
 super + r; t
 	 sh ~/.local/scripts/timenotify.sh
 
+super + r; c
+         sh ~/.config/sxhkd/scripts/timers.sh concentration
+
+super + r; C
+         pkill -f concentration
 super + Print
       scrot -e
 
