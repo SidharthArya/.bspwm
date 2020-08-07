@@ -8,4 +8,5 @@ while [[ $(bspc query -N | wc -l) > 0 ]];
 do
     sleep 5;
 done
+fusermount -u ~/Documents;
 st -e sh ~/.local/scripts/sync.sh;

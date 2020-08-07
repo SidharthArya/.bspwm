@@ -25,14 +25,5 @@ bspc config gapless_monocle true
 bspc config borderless_monocle true
 bspc config focused_border_color "#00ff00"
 bspc config normal_border_color "#005500"
-nitrogen --restore
-gocryptfs -extpass 'kdialog --password Files' ~/Private/Drive/Personal ~/Documents &&
-    (
-    emacs --config tracking & 
-    st -e sh ~/.local/scripts/sync.sh &
-    gwenview ~/Documents/Org/Tracking/images &
-    ) ||
-        (
-            kdialog --msgbox "Hello Guest";
-        )
-    
+
+sh ~/.config/sxhkd/scripts/session_start.sh
