@@ -161,7 +161,7 @@ super + r; c
          sh ~/.config/sxhkd/scripts/timers.sh concentration
 
 super + r; C
-         pkill -f concentration
+         pkill -f concentration && notify-send Timer "Timer Cancelled"
 super + Print
       scrot -e
 
