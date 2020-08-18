@@ -1,6 +1,4 @@
 #!/bin/sh
-
-
 nitrogen --restore
 gocryptfs -extpass 'kdialog --password Files' ~/Private/Drive/Personal ~/Documents &&
     (
