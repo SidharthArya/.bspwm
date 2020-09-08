@@ -1,8 +1,8 @@
 super + shift + Return
-	st -f "Space Mono:size=9"
+	st
 
-super + shift + a
-	dmenu_run
+super + p
+	dmenu_run -fn "Source Code Pro:size=11"
 super + a
       sh ~/.config/sxhkd/scripts/run.sh
 super + shift + r; r
