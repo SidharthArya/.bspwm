@@ -2,7 +2,7 @@ super + shift + Return
 	st -f "Space Mono:size=9"
 
 super + shift + a
-	rofi -show drun 
+	dmenu_run
 super + a
       sh ~/.config/sxhkd/scripts/run.sh
 super + shift + r; r

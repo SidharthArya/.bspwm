@@ -2,7 +2,7 @@
 polybar top &
 polybar bottom &
 picom &
-sxhkd &
+sxhkd -c ~/.config/bspwm/sxhkdrc &
 
 # Personal
 echo 0 >> ~/Documents/Org/Tracking/.concentration
