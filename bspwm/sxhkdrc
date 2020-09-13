@@ -23,6 +23,9 @@ super + shift + q; shift + q
 super + shift + q; p
 	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
 
+super + shift + q; h
+	sh ~/.config/sxhkd/scripts/session_exit.sh && systemctl hibernate -i
+
 super + shift + q; s
 	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
 
@@ -196,3 +199,7 @@ XF86AudioMute
         
 XF86AudioMicMute
         pactl set-source-mute "$(pactl list sources | grep Source | tail -n 1 | sed 's/.*#//g')" toggle
+
+
+super + r; b
+	st -e bash -c 'upower -d | less'
