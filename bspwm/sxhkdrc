@@ -18,7 +18,7 @@ super + shift + q; q
 	sh ~/.config/sxhkd/scripts/session_exit.sh && bspc quit
 
 super + shift + q; shift + q 
-	bspc quit
+	killall emacs && fusermount -u ~/Documents && bspc quit
 
 super + shift + q; p
 	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
@@ -176,3 +176,23 @@ super + ctrl + {1-9}
 
 super + ctrl + space
 	bspc node -p cancel
+
+XF86MonBrightnessDown
+        brightnessctl s 100-
+XF86MonBrightnessUp
+        brightnessctl s +100
+XF86Tools
+	redshift -O 3500K
+super + XF86Tools
+	redshift -x
+XF86AudioRaiseVolume
+	sh ~/.config/sxhkd/scripts/volume.sh increase
+XF86AudioLowerVolume
+	sh ~/.config/sxhkd/scripts/volume.sh decrease
+XF86AudioMute
+pactl list sinks | grep -q Mute:.no && pactl set-sink-mute 0 1 || pactl set-sink-mute 0 0
+XF86AudioMute
+        pamixer -t
+        
+XF86AudioMicMute
+        pactl set-source-mute "$(pactl list sources | grep Source | tail -n 1 | sed 's/.*#//g')" toggle
