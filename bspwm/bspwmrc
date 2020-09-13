@@ -1,6 +1,7 @@
 #!/bin/sh
 # polybar top &
 # polybar bottom &
+pgrep -x panel > /dev/null || panel &
 xsetroot -cursor_name left_ptr
 picom &
 sxhkd -c ~/.config/bspwm/sxhkdrc &
@@ -30,5 +31,4 @@ bspc config normal_border_color "#005500"
 sh ~/.config/sxhkd/scripts/session_start.sh
 export PATH=/home/arya/.config/bspwm:$PATH
 source ~/.config/bspwm/profile
-pgrep -x panel > /dev/null || panel &
 
