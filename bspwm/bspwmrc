@@ -1,6 +1,6 @@
 #!/bin/sh
-polybar top &
-polybar bottom &
+# polybar top &
+# polybar bottom &
 picom &
 sxhkd -c ~/.config/bspwm/sxhkdrc &
 
@@ -27,3 +27,7 @@ bspc config focused_border_color "#00ff00"
 bspc config normal_border_color "#005500"
 
 sh ~/.config/sxhkd/scripts/session_start.sh
+PATH=~/.config/bspwm:$PATH
+source ~/.config/bspwm/profile
+pgrep -x panel > /dev/null || panel &
+

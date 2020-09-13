@@ -6,10 +6,10 @@ super + p
 super + a
       sh ~/.config/sxhkd/scripts/run.sh
 super + shift + r; r
-	bspc wm -r
+	pkill -x panel; bspc wm -r
 
 super + shift + r; w
-	bspc wm -r
+	pkill -x panel; bspc wm -r
 
 super + shift + r; k
 	pkill -USR1 -x sxhkd
@@ -71,7 +71,7 @@ super + {Left,Down,Up,Right}
 
 
 super + {_,shift + } Tab
-	bspc node -f {next.local,prev.local}
+	bspc node -f {older.local,newer.local}
 
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
