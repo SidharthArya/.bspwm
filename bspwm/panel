@@ -10,8 +10,8 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-xprop getactivewindow getwindowname > "$PANEL_FIFO" &
-while true;do date +'%a %a %d %b %Y %H:%M'; sleep 1m; done > "$PANEL_FIFO" &
+xtitle -sF 'T%s\n'> "$PANEL_FIFO" &
+while true;do date +'%a %d %b %Y %H:%M'; sleep 1m; done > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
 
 . panel_colors
