@@ -11,7 +11,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$PANEL_FIFO"
 
 xtitle -sf 'T%s\n'> "$PANEL_FIFO" &
-while true;do date +'T%a %d %b %Y %H:%M'; sleep 1m; done > "$PANEL_FIFO" &
+while true;do date +'S%a %d %b %Y %H:%M'; sleep 1m; done > "$PANEL_FIFO" &
 bspc subscribe report > "$PANEL_FIFO" &
 
 . panel_colors
