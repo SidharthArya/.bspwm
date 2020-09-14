@@ -30,4 +30,3 @@ bspc config focused_border_color "#00ff00"
 bspc config normal_border_color "#005500"
 
 sh ~/.config/sxhkd/scripts/session_start.sh
-
