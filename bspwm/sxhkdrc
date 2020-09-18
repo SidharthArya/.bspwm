@@ -109,8 +109,7 @@ super + {_,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh}
 
 super + d; w
-      rofi -show window
-	 #sh ~/.config/sxhkd/scripts/windows.sh
+	 sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
 	 sh ~/.config/sxhkd/scripts/configopen.sh
