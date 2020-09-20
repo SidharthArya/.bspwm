@@ -95,7 +95,7 @@ super + grave
 	bspc desktop last.local -f
 
 super + d; {o,Return,t,m,n}
-	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,class Scratchpad_Terminal st -c Scratchpad_Terminal -f SpaceMono -e tmux,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
+	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,class Scratchpad_Terminal st -c Scratchpad_Terminal -e tmux,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
 super + d; f
 	  emacsclient -c --eval "(dired \"~\")" 
 
