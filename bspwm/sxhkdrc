@@ -97,8 +97,7 @@ super + grave
 super + d; {o,Return,t,m,n}
 	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,class Scratchpad_Terminal st -c Scratchpad_Terminal -e tmux,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
 super + d; f
-	  emacsclient -c --eval "(dired \"~\")" 
-
+	st -e nnn
 super + d; p
 	st -e htop
 super + d; shift + r
@@ -204,5 +203,7 @@ super + r; b
 
 super + r; s
 	st -e bash -c 'sensors | less'
+super + r; p
+	st -e ytop
 super + n
 	bash -c "if $(dunstctl is-paused); then notify-send 'Do not Disturb Mode Disabled'; else notify-send 'Do Not Disturb Enabled' && sleep 5; fi && dunstctl set-paused toggle"
