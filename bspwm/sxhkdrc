@@ -30,7 +30,7 @@ super + shift + q; s
 	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
 
 super + shift + q; r
-	sh ~/.config/sxhkd/scripts/session_exit.sh && restart
+	sh ~/.config/sxhkd/scripts/session_exit.sh && reboot
 
 super + shift + q; l
       dm-tool lock 
