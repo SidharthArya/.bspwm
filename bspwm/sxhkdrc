@@ -110,7 +110,8 @@ super + d; w
 	 sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
-	 sh ~/.config/sxhkd/scripts/configopen.sh
+	st -e bc
+	 # sh ~/.config/sxhkd/scripts/configopen.sh
 
 
 super + d; N
@@ -190,12 +191,13 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	sh ~/.config/sxhkd/scripts/volume.sh decrease
 XF86AudioMute
-pactl list sinks | grep -q Mute:.no && pactl set-sink-mute 0 1 || pactl set-sink-mute 0 0
+	pactl list sinks | grep -q Mute:.no && pactl set-sink-mute 0 1 || pactl set-sink-mute 0 0
 XF86AudioMute
         pamixer -t
         
 XF86AudioMicMute
-        pactl set-source-mute "$(pactl list sources | grep Source | tail -n 1 | sed 's/.*#//g')" toggle
+	pactl set-source-mute 1 toggle
+        # pactl set-source-mute "$(pactl list sources | grep Source | tail -n 1 | sed 's/.*#//g')" toggle
 
 
 super + r; b
