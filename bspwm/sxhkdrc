@@ -97,7 +97,7 @@ super + grave
 super + d; {o,Return,t,m,n}
 	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,class Scratchpad_Terminal st -c Scratchpad_Terminal -e tmux,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
 super + d; f
-	st -e nnn
+	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
 super + d; p
 	st -e htop
 super + d; shift + r
