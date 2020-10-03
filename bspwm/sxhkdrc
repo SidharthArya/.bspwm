@@ -74,6 +74,9 @@ super + {Left,Down,Up,Right}
 
 
 super + {_,shift + } Tab
+	bspc node -f {older.local.window,newer.local.window}
+
+super + control + {_,shift + } Tab
 	bspc node -f {next.local.window,prev.local.window}
 
 super + bracket{left,right}
