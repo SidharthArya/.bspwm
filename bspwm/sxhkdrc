@@ -75,8 +75,11 @@ super + {Left,Down,Up,Right}
 super + Tab
 	bspc node -f older.window
 
-super + shift + Tab
-	bspc node -f next.window
+super + shift + {Down, Up}
+	bspc node -f {next,prev}.window
+
+super + shift + {Left, Right}
+	bspc desktop -f {prev,next}
 
 super + {_,shift + } Tab
 	bspc node -f {older.window.local,newer.window.local}
