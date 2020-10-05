@@ -175,8 +175,10 @@ super + r; c
 super + r; C
          pkill -f concentration && notify-send Timer "Timer Cancelled"
 super + Print
-      scrot -e
+      pushd Pictures/Screeshots && scrot -s && notify-send "Screenshot Captured"; popd
 
+Print
+      cd Pictures/Screenshots && scrot
 
 # Presel
 super + ctrl + {h,j,k,l}
