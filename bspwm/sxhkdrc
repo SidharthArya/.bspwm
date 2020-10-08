@@ -220,3 +220,8 @@ super + r; p
 	st -e ytop
 super + n
 	bash -c "if $(dunstctl is-paused); then notify-send 'Do not Disturb Mode Disabled'; else notify-send 'Do Not Disturb Enabled' && sleep 5; fi && dunstctl set-paused toggle"
+
+
+super + {Prior, Next}
+	picom-trans -c {+5,-5}
+
