@@ -1,8 +1,9 @@
 super + shift + Return
-	st
+	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
 
 super + p
-	dmenu_run -fn "Source Code Pro:size=11"
+	st -c fzf -e bash -c 'setsid $(dmenu_path | fzf)'
+bspc rule -a firefox:Toolkit state=floating sticky=on
 super + a
       sh ~/.config/sxhkd/scripts/run.sh
 super + shift + r; r
@@ -103,10 +104,12 @@ super + shift + bracket{left,right}
 super + grave
 	bspc desktop last.local -f
 
-super + d; {o,Return,t,m,n}
-	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,class Scratchpad_Terminal st -c Scratchpad_Terminal -e tmux,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
-super + d; f
+super + d; {o,t,m,n}
+	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
+super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
+super + shift + f
+	~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -e sh ~/.config/sxhkd/scripts/file_manager.sh
 super + d; p
 	st -e htop
 super + d; shift + r
@@ -116,7 +119,7 @@ super + {_,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh}
 
 super + d; w
-	 sh ~/.config/sxhkd/scripts/windows.sh
+	 st -c fzf -e sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
 	st -e bc
@@ -149,7 +152,8 @@ super + d; e; d
 
 super + d; e; i
       bspc node -i
-
+super + d; Return
+	st
 
 XF86AudioRaiseVolume
         sh ~/.config/sxhkd/scripts/volume.sh increase
@@ -225,3 +229,9 @@ super + n
 super + {Prior, Next}
 	picom-trans -c {+5,-5}
 
+super + minus
+	bspc node -l below
+super + plus
+	bspc node -l above
+super + equal
+	bspc node -l normal
