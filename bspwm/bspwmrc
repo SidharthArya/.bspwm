@@ -31,4 +31,5 @@ bspc config borderless_monocle true
 bspc config focused_border_color "#00ff00"
 bspc config normal_border_color "#005500"
 bspc config border_width 5
+sh ~/.config/sxhkd/scripts/battery_monitor.sh &
 sh ~/.config/sxhkd/scripts/session_start.sh
