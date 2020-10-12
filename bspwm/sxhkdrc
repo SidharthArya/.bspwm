@@ -2,7 +2,7 @@ super + shift + Return
 	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
 
 super + p
-	st -c fzf -e bash -c 'setsid $(dmenu_path | fzf)'
+	dmenu_run
 bspc rule -a firefox:Toolkit state=floating sticky=on
 super + a
       sh ~/.config/sxhkd/scripts/run.sh
