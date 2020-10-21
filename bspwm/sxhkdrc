@@ -115,7 +115,7 @@ super + d; p
 super + d; shift + r
       st -e sh ~/.local/scripts/sync.sh
       
-super + {_,ctrl + ,shift +} z
+super + {_,alt + ,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh list, sh ~/.config/sxhkd/scripts/unminimize.sh last}
 
 super + d; w
