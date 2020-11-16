@@ -3,9 +3,10 @@ super + shift + Return
 
 super + p
 	dmenu_run
-bspc rule -a firefox:Toolkit state=floating sticky=on
+
 super + a
       sh ~/.config/sxhkd/scripts/run.sh
+
 super + shift + r; r
 	pkill -x panel; bspc wm -r
 
