@@ -2,7 +2,8 @@
 # polybar top &
 # polybar bottom &
 source ~/.config/bspwm/profile
-panel &
+# panel &
+brave &
 xsetroot -cursor_name left_ptr
 picom &
 sxhkd -c ~/.config/bspwm/sxhkdrc &
