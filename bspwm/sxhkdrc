@@ -2,7 +2,10 @@ super + shift + Return
 	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
 
 super + p
-	dmenu_run
+	rofi -show run -theme Pop-Dark -font 'Noto Sans 14'
+
+super + shift + p
+	rofi -show drun -theme Pop-Dark -font 'Noto Sans 14'
 
 super + a
       sh ~/.config/sxhkd/scripts/run.sh
