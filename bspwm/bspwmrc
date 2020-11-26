@@ -1,5 +1,5 @@
 #!/bin/sh
-# polybar top &
+polybar example &
 # polybar bottom &
 source ~/.config/bspwm/profile
 # panel &
