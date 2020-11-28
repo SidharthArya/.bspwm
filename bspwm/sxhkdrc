@@ -113,7 +113,9 @@ super + d; {o,t,m,n}
 super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
 super + shift + f
-	~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -e sh ~/.config/sxhkd/scripts/file_manager.sh
+      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-150 -e nnn -x
+super + g;f
+      sh ~/.config/sxhkd/scripts/bookmarks.sh
 super + d; p
 	st -e htop
 super + d; shift + r
@@ -239,3 +241,6 @@ super + plus
 	bspc node -l above
 super + equal
 	bspc node -l normal
+
+super + XF86Favorites
+      sh ~/.local/scripts/webcam.sh
