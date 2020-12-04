@@ -125,7 +125,7 @@ super + {_,alt + ,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh list, sh ~/.config/sxhkd/scripts/unminimize.sh last}
 
 super + d; w
-	 st -c fzf -e sh ~/.config/sxhkd/scripts/windows.sh
+	rofi -show window -theme Pop-Dark -font 'Noto Sans 14' 
 
 super + d; c
 	st -e bc
@@ -183,7 +183,13 @@ super + r; c
 super + r; C
          pkill -f concentration && notify-send Timer "Timer Cancelled"
 super + Print
-      pushd Pictures/Screeshots && scrot -s && notify-send "Screenshot Captured"; popd
+      cd Pictures/Screenshots && scrot -s && notify-send "Screenshot Captured"
+
+alt + Print
+      cd Pictures/Screenshots && scrot && notify-send "Screenshot Captured"
+alt + shift + Print
+      cd Pictures/Screenshots && scrot -s && notify-send "Screenshot Captured"
+
 
 Print
       cd Pictures/Screenshots && scrot
