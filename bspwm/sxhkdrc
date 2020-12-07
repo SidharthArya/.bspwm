@@ -108,8 +108,9 @@ super + shift + bracket{left,right}
 super + grave
 	bspc desktop last.local -f
 
-super + d; {o,t,m,n}
-	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news}
+super + d; {o,t,m,n,d}
+	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, ls, wclass Doom emacs --config doom}
+# wclass News emacs --config news
 super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
 super + shift + f
