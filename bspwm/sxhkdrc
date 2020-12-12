@@ -126,7 +126,7 @@ super + {_,alt + ,shift +} z
 	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh list, sh ~/.config/sxhkd/scripts/unminimize.sh last}
 
 super + d; w
-	rofi -show window -theme Pop-Dark -font 'Noto Sans 14' 
+	sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
 	st -e bc
