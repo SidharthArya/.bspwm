@@ -5,7 +5,7 @@ source ~/.config/bspwm/profile
 # panel &
 sxhkd -c ~/.config/bspwm/sxhkdrc &
 # Keyboard
-xcape -e 'Shift_L=Escape;Shift_R=Escape'
+xcape -e 'Super_L=Escape'
 # Personal
 echo 0 >> ~/Documents/Org/Tracking/.concentration
 echo bspwm > /tmp/wm

@@ -109,7 +109,7 @@ super + grave
 	bspc desktop last.local -f
 
 super + d; {o,t,m,n,d}
-	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, ls, wclass Doom emacs --config doom}
+	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
 # wclass News emacs --config news
 super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
@@ -129,7 +129,7 @@ super + d; w
 	sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
-	st -e bc
+	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e genius
 	 # sh ~/.config/sxhkd/scripts/configopen.sh
 
 
@@ -251,3 +251,9 @@ super + equal
 
 super + XF86Favorites
       sh ~/.local/scripts/webcam.sh
+super + shift + XF86Favorites
+      sh ~/.config/sxhkd/scripts/screenkey.sh
+super + d; b
+      sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
+
+
