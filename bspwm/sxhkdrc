@@ -129,7 +129,7 @@ super + d; w
 	sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
-	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e genius
+	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e sh ~/.config/sxhkd/scripts/calculator.sh
 	 # sh ~/.config/sxhkd/scripts/configopen.sh
 
 
