@@ -110,11 +110,12 @@ super + grave
 
 super + d; {t,m,n,d}
 	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
-super + e
+hyper + e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 # wclass News emacs --config news
 super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
+
 super + shift + f
       sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-150 -e nnn -x
 super + g;f
