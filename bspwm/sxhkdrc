@@ -110,6 +110,7 @@ super + grave
 
 super + d; {t,m,n,d}
 	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
+        
 hyper + e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 # wclass News emacs --config news
