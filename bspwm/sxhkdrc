@@ -108,8 +108,10 @@ super + shift + bracket{left,right}
 super + grave
 	bspc desktop last.local -f
 
-super + d; {o,t,m,n,d}
-	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Org emacs,wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
+super + d; {t,m,n,d}
+	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
+super + e
+      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 # wclass News emacs --config news
 super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
@@ -129,7 +131,7 @@ super + d; w
 	sh ~/.config/sxhkd/scripts/windows.sh
 
 super + d; c
-	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e sh ~/.config/sxhkd/scripts/calculator.sh
+	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e genius
 	 # sh ~/.config/sxhkd/scripts/configopen.sh
 
 

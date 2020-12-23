@@ -18,6 +18,7 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Files state=floating
 bspc rule -a tabbed state=floating
 bspc rule -a Webcam:* state=floating
+bspc rule -a Calculator:* state=floating layer=above
 #bspc config border_width         2
 
 #bspc config window_gap          -2
