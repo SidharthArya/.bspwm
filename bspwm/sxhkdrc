@@ -1,13 +1,7 @@
-super + shift + Return
-	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
-
-super + p
-	rofi -show run -theme Pop-Dark -font 'Noto Sans 14'
-
-super + shift + p
-	rofi -show drun -theme Pop-Dark -font 'Noto Sans 14'
-
 super + a
+	rofi -show run -theme dmenu -font 'Noto Sans 14'
+
+super + shift + a
       sh ~/.config/sxhkd/scripts/run.sh
 
 super + shift + r; r
@@ -19,6 +13,8 @@ super + shift + r; w
 super + shift + r; k
 	pkill -USR1 -x sxhkd
 
+hyper + s
+	sh ~/.config/sxhkd/scripts/session_save.sh
 super + shift + q; q 
 	sh ~/.config/sxhkd/scripts/session_exit.sh && bspc quit
 

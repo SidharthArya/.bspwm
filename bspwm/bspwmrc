@@ -4,10 +4,10 @@ polybar example &
 source ~/.config/bspwm/profile
 # panel &
 # Keyboard
+setxkbmap -layout us -option caps:hyper
 xmodmap -e 'remove mod4 = Hyper_L'
 xmodmap -e 'add mod3 = Hyper_L'
 xmodmap -e 'add mod3 = Hyper_R'
-setxkbmap -layout us -option caps:hyper
 xcape -e 'Super_L=Escape'
 xmodmap -e "keycode 252 = Caps_Lock"
 xmodmap -e "keycode 253 = Return"
