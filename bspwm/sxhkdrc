@@ -39,6 +39,8 @@ super + shift + q; l
 super + {_,shift + }c
 	bspc node -{c,k}
 
+super + {hyper + }c
+	bspc node $(bspc query -N -n next.window) -c
 super + m
 	bspc desktop -l next
 
@@ -110,6 +112,8 @@ super + grave
         
 hyper + e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
+hyper + o
+      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 # wclass News emacs --config news
 super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
@@ -119,14 +123,12 @@ super + g;f
 super + d; shift + r
       st -e sh ~/.local/scripts/sync.sh
       
-super + {_,alt + ,shift +} z
-	{bspc node -g hidden, sh ~/.config/sxhkd/scripts/unminimize.sh list, sh ~/.config/sxhkd/scripts/unminimize.sh last}
+super + {_,hyper + ,shift +} z
+	{sh ~/.config/sxhkd/scripts/minimize.sh current, sh ~/.config/sxhkd/scripts/unminimize.sh cycle, sh ~/.config/sxhkd/scripts/unminimize.sh last}
 
-super + d; w
+super + w
 	sh ~/.config/sxhkd/scripts/windows.sh
-
-
-
+        
 super + d; N
 	 sh ~/.local/scripts/timenotify.sh
 
@@ -169,14 +171,14 @@ hyper + d
 hyper + q
 	 emacs --script ~/.emacs.d/scripts/quote
          
-super + r; t
-	 sh ~/.local/scripts/timenotify.sh
+## super + r; t
+## 	 sh ~/.local/scripts/timenotify.sh
 
-super + r; c
-         sh ~/.config/sxhkd/scripts/timers.sh concentration
+## super + r; c
+##          sh ~/.config/sxhkd/scripts/timers.sh concentration
 
-super + r; C
-         pkill -f concentration && notify-send Timer "Timer Cancelled"
+## super + r; C
+##          pkill -f concentration && notify-send Timer "Timer Cancelled"
 super + Print
       cd Pictures/Screenshots && scrot -s && notify-send "Screenshot Captured"
 
@@ -222,13 +224,18 @@ XF86AudioMicMute
         # pactl set-source-mute "$(pactl list sources | grep Source | tail -n 1 | sed 's/.*#//g')" toggle
 
 
-super + r; b
+hyper + i; b
 	st -e bash -c 'upower -d | less'
 
-super + r; s
+hyper + i; s
 	st -e bash -c 'sensors | less'
-super + r; p
+hyper + i; p
 	st -e ytop
+
+hyper + i;c
+      st -e bash -c 'lscpu | less'
+hyper + i;l
+      st -e bash -c 'dmesg | less'
 super + n
 	bash -c "if $(dunstctl is-paused); then notify-send 'Do not Disturb Mode Disabled'; else notify-send 'Do Not Disturb Enabled' && sleep 5; fi && dunstctl set-paused toggle"
 
@@ -253,29 +260,32 @@ hyper + ctrl + XF86Favorites
 hyper + a
 	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
 
+hyper + apostrophe
+	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
 super + d; b
       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
 
-hyper + w
-      firefox
 hyper + f
       sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-150 -e nnn -x
-super + d; {t,m,n,d}
-	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
-
 hyper + n
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 
 hyper + m
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Mail emacs --config mail
 
+hyper + t
+	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
 hyper + b
 	sh ~/.config/sxhkd/scripts/scratchpad.sh title Navigator firefox
 
+hyper + shift + b
+	sh ~/.config/sxhkd/scripts/scratchpad.sh title Toolkit 
 hyper + c
 	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e genius
         
+hyper + shift + c
+	~/.config/sxhkd/scripts/scratchpad.sh class PyCalculator st -c PyCalculator sh ~/.config/sxhkd/scripts/calculator.sh
 
 hyper + p
 	st -e htop
