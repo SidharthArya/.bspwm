@@ -1,6 +1,3 @@
-# hyper + Return
-# 	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
-
 super + shift + Return
 	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
 
@@ -254,7 +251,7 @@ hyper + XF86Favorites
       sh ~/.local/scripts/webcam.sh
 hyper + shift + XF86Favorites
       sh ~/.config/sxhkd/scripts/screenkey.sh
-hyper + control + XF86Favorites
+hyper + ctrl + XF86Favorites
       pkill -f
 
 hyper + a
