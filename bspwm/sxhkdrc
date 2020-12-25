@@ -1,3 +1,6 @@
+# hyper + Return
+# 	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
+
 super + shift + Return
 	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
 
@@ -78,8 +81,11 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 super + Tab
-	bspc node -f older.window.local
+	bspc node -f next.window.local || bspc node -f older.window.local
 
+super + shift + Tab
+	bspc node -f prev.window.local || bspc node -f older.window.local
+        
 super + shift + {Down, Up}
 	bspc node -f {next,prev}.window.local
 
@@ -108,8 +114,6 @@ super + shift + bracket{left,right}
 super + grave
 	bspc desktop last.local -f
 
-super + d; {t,m,n,d}
-	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
         
 hyper + e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
@@ -117,12 +121,8 @@ hyper + e
 super + d;f
 	st -e sh ~/.config/sxhkd/scripts/file_manager.sh
 
-super + shift + f
-      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-150 -e nnn -x
 super + g;f
       sh ~/.config/sxhkd/scripts/bookmarks.sh
-super + d; p
-	st -e htop
 super + d; shift + r
       st -e sh ~/.local/scripts/sync.sh
       
@@ -132,9 +132,6 @@ super + {_,alt + ,shift +} z
 super + d; w
 	sh ~/.config/sxhkd/scripts/windows.sh
 
-super + d; c
-	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e genius
-	 # sh ~/.config/sxhkd/scripts/configopen.sh
 
 
 super + d; N
@@ -174,9 +171,9 @@ XF86AudioLowerVolume
 
 
 
-super + r; d
+hyper + d
 	 emacs --script ~/.emacs.d/scripts/daily
-super + r; q
+hyper + q
 	 emacs --script ~/.emacs.d/scripts/quote
          
 super + r; t
@@ -253,11 +250,39 @@ super + plus
 super + equal
 	bspc node -l normal
 
-super + XF86Favorites
+hyper + XF86Favorites
       sh ~/.local/scripts/webcam.sh
-super + shift + XF86Favorites
+hyper + shift + XF86Favorites
       sh ~/.config/sxhkd/scripts/screenkey.sh
+hyper + control + XF86Favorites
+      pkill -f
+
+hyper + a
+	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
+
 super + d; b
       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
 
+hyper + w
+      firefox
+hyper + f
+      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-150 -e nnn -x
+super + d; {t,m,n,d}
+	sh ~/.config/sxhkd/scripts/scratchpad.sh {wclass Tracking emacs --config tracking,wclass Mail emacs --config mail, wclass News emacs --config news, wclass Doom emacs --config doom}
+
+hyper + n
+	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
+
+hyper + m
+	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Mail emacs --config mail
+
+hyper + b
+	sh ~/.config/sxhkd/scripts/scratchpad.sh title Navigator firefox
+
+hyper + c
+	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e genius
+        
+
+hyper + p
+	st -e htop
