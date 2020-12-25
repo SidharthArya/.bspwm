@@ -14,7 +14,7 @@ super + shift + r; k
 	pkill -USR1 -x sxhkd
 
 hyper + s
-	sh ~/.config/sxhkd/scripts/session_save.sh
+        st -e sh ~/.local/scripts/sync.sh
 super + shift + q; q 
 	sh ~/.config/sxhkd/scripts/session_exit.sh && bspc quit
 
