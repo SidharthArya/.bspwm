@@ -8,13 +8,11 @@ setxkbmap -layout us -option caps:hyper
 xmodmap -e 'remove mod4 = Hyper_L'
 xmodmap -e 'add mod3 = Hyper_L'
 xmodmap -e 'add mod3 = Hyper_R'
-xcape -e 'Super_L=Escape'
 xmodmap -e "keycode 252 = Caps_Lock"
 xmodmap -e "keycode 253 = Return"
 xmodmap -e "keycode 66 = Hyper_L"
 xmodmap -e "keycode 36 = Hyper_R"
-xcape -e 'Hyper_L=Caps_Lock'
-xcape -e 'Hyper_R=Return'
+xcape -e 'Hyper_L=Caps_Lock;Hyper_R=Return;Super_L=Super_L|a'
 sxhkd -c ~/.config/bspwm/sxhkdrc &
 # Personal
 echo 0 >> ~/Documents/Org/Tracking/.concentration
