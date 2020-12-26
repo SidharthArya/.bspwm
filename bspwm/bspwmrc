@@ -30,6 +30,7 @@ bspc rule -a Files state=floating
 bspc rule -a tabbed state=floating
 bspc rule -a Webcam:* state=floating
 bspc rule -a Calculator:* state=floating 
+bspc rule -a PyCalculator:* state=floating 
 #bspc config border_width         2
 
 #bspc config window_gap          -2

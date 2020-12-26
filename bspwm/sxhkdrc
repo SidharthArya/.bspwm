@@ -1,5 +1,5 @@
 super + a
-	rofi -show run -theme dmenu -font 'Noto Sans 14'
+	rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
 
 super + shift + a
       sh ~/.config/sxhkd/scripts/run.sh
@@ -54,8 +54,13 @@ super + Return
 super + {t,shift + t,f,x}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-super + ctrl + {z,x,s,a}
-	bspc node -g {marked,locked,sticky,private}
+super + ctrl + {x,a}
+	bspc node -g {locked,private}
+
+super + shift + m
+      bspc node -g marked
+super + s
+      bspc node -g sticky
 
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
@@ -123,7 +128,7 @@ super + g;f
 super + d; shift + r
       st -e sh ~/.local/scripts/sync.sh
       
-super + {_,hyper + ,shift +} z
+super + {_,ctrl + ,shift +} z
 	{sh ~/.config/sxhkd/scripts/minimize.sh current, sh ~/.config/sxhkd/scripts/unminimize.sh cycle, sh ~/.config/sxhkd/scripts/unminimize.sh last}
 
 super + w
@@ -138,14 +143,14 @@ super + d; k
 super + d; {s, shift + s}
 	 {sh ~/.config/sxhkd/scripts/scripts.sh | dmenu | xargs -I\{\} sh \{\},sh ~/.config/sxhkd/scripts/scripts.sh | dmenu | xargs -I\{\} emacsclient -n \{\}}
 
-super + s; s
-      sh ~/.config/sxhkd/scripts/tts.sh start
+## super + s; s
+##       sh ~/.config/sxhkd/scripts/tts.sh start
       
-super + s; shift + s
-      sh ~/.config/sxhkd/scripts/tts.sh stop
+## super + s; shift + s
+##       sh ~/.config/sxhkd/scripts/tts.sh stop
       
-super + s; p
-      pavucontrol
+## super + s; p
+##       pavucontrol
 
 super + d; e; i
       bspc node -i
@@ -289,3 +294,5 @@ hyper + shift + c
 
 hyper + p
 	st -e htop
+hyper + v
+      ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
