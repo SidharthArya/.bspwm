@@ -318,3 +318,8 @@ super + shift + b
       sh ~/.config/sxhkd/scripts/bar.sh
 hyper + shift + e
       sh ~/.local/scripts/emoji.sh
+hyper + shift + t
+      st
+
+super + shift + n
+      bspc node -B
