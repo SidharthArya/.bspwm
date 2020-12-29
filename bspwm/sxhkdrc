@@ -1,20 +1,26 @@
+# Windows Specific
 super + a
 	rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
 
 super + shift + a
       sh ~/.config/sxhkd/scripts/run.sh
 
-super + shift + r; r
-	pkill -x panel; bspc wm -r
-
-super + shift + r; w
-	pkill -x panel; bspc wm -r
-
-super + shift + r; k
+super + r
 	pkill -USR1 -x sxhkd
+        
+super + shift + r
+	pkill -x polybar; bspc wm -r
 
-hyper + s
-        st -e sh ~/.local/scripts/sync.sh
+super + shift + b
+      sh ~/.config/sxhkd/scripts/bar.sh
+super + shift + n
+      bspc node -B
+
+super + o
+      echo | rofi -dmenu -theme dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate
+
+super + u
+        bspc node next.urgent -f 
 super + shift + q; q 
 	sh ~/.config/sxhkd/scripts/session_exit.sh && bspc quit
 
@@ -41,7 +47,7 @@ super + {_,shift + }c
 
 super + {hyper + }c
 	bspc node $(bspc query -N -n next.window) -c
-super + m
+super + space
 	bspc desktop -l next
 
 super + y
@@ -54,11 +60,28 @@ super + Return
 super + {t,shift + t,f,x}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-super + ctrl + {x,a}
-	bspc node -g {locked,private}
+super + ctrl + c
+	bspc node -g locked
 
-super + shift + m
+super + m
       bspc node -g marked
+
+super + shift + m; semicolon
+           echo | dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked
+ 
+super + shift + m; f
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked -f
+super + shift + m; {1-9,0}
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -d {1-9,0}
+super + shift + m; m
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -g marked=off
+super + shift + m; c
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -c
+
+
+
+super + shift + p
+      bspc node -g private
 super + s
       bspc node -g sticky
 
@@ -313,13 +336,12 @@ super + shift + g
 ## super + shift + v
 ##       bspc config border_width $(( $(bspc config border_width) - 5 ))
 
+hyper + s
+        st -e sh ~/.local/scripts/sync.sh
 
-super + shift + b
-      sh ~/.config/sxhkd/scripts/bar.sh
+
+
 hyper + shift + e
       sh ~/.local/scripts/emoji.sh
 hyper + shift + t
       st
-
-super + shift + n
-      bspc node -B
