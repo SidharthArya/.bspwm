@@ -9,7 +9,7 @@ super + r
 	pkill -USR1 -x sxhkd
         
 super + shift + r
-	pkill -x polybar; bspc wm -r
+	pkill -f panel; bspc wm -r
 
 super + shift + b
       sh ~/.config/sxhkd/scripts/bar.sh
@@ -17,31 +17,12 @@ super + shift + n
       bspc node -B
 
 super + o
-      echo | rofi -dmenu -theme dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate
+      echo | dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate
 
 super + u
         bspc node next.urgent -f 
-super + shift + q; q 
-	sh ~/.config/sxhkd/scripts/session_exit.sh && bspc quit
-
-super + shift + q; shift + q 
-	killall emacs && fusermount -u ~/Documents && bspc quit
-
-super + shift + q; p
-	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
-
-super + shift + q; h
-	sh ~/.config/sxhkd/scripts/session_exit.sh && systemctl hibernate -i
-
-super + shift + q; s
-	sh ~/.config/sxhkd/scripts/session_exit.sh && poweroff
-
-super + shift + q; r
-	sh ~/.config/sxhkd/scripts/session_exit.sh && reboot
-
-super + shift + q; l
-      dm-tool lock 
-        
+super + shift + q
+	pkill -f panel && bspc quit
 super + {_,shift + }c
 	bspc node -{c,k}
 
@@ -64,13 +45,18 @@ super + ctrl + c
 	bspc node -g locked
 
 super + m
-      bspc node -g marked
+      bspc node -g marked && bspc config -n "$(bspc query -N -n .marked)" border-width 10
 
 super + shift + m; semicolon
            echo | dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked
  
 super + shift + m; f
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked -f
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -f
+super + shift + m; F
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -d focused -f
+super + shift + m; b
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -d focused -f
+
 super + shift + m; {1-9,0}
            sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -d {1-9,0}
 super + shift + m; m
@@ -78,7 +64,8 @@ super + shift + m; m
 super + shift + m; c
            sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -c
 
-
+super + shift +m; r
+      sh ~/.config/sxhkd/scripts/bspc_query_op.sh receptacle-insert-all-marked
 
 super + shift + p
       bspc node -g private
@@ -104,12 +91,12 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 super + Tab
-	bspc node -f older.window.local  || bspc node -f older.window
-super + hyper + Tab
-	bspc node -f next.window.local || bspc node -f older.window.local  || bspc node -f next.window
-
+	bspc node -f older.window.local  || bspc node -f next.window.mlocal || bspc node -f older.window
 super + shift + Tab
-	bspc node -f prev.window.local || bspc node -f older.window.local || bspc node -f prev.window
+	bspc node -f next.window.local ||  bspc node -f next.window || bspc node -f older.window.local
+
+super + hyper + Tab
+	bspc node -f prev.window.local || bspc node -f prev.window || bspc node -f older.window.local 
         
 super + shift + {Down, Up}
 	bspc node -f {next,prev}.window.local

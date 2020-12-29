@@ -1,9 +1,10 @@
 #!/bin/sh
-polybar example &
+#polybar example &
 # polybar bottom &
-source ~/.config/bspwm/profile
-# panel &
+#source ~/.config/bspwm/profile
+sh ~/.config/bspwm/scripts/panel.sh
 # Keyboard
+xrdb -merge ~/.Xresources
 setxkbmap -layout us -option caps:hyper
 setxkbmap -layout us -option print:super
 xmodmap -e 'remove mod4 = Hyper_L'

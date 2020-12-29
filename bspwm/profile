@@ -1,6 +1,0 @@
-PANEL_FIFO=/tmp/panel-fifo
-PANEL_HEIGHT=24
-PANEL_FONT="Source Code Pro:size=12"
-PANEL_WM_NAME=bspwm_panel
-PATH=/home/arya/.config/bspwm:$PATH
-export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_WM_NAME PATH
