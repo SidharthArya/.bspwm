@@ -23,12 +23,15 @@ parameters+=" -title-name dzentop -dock"
 while read -r line;
 do
     text=""
-    for i in $(echo $line | sed 's/\:/\n/g');
+    for i in $(echo $line | cut -c 2- | sed 's/\:/\n/g');
     do
         
         case $i in
-            W*)
-                text+="^bg($monitorbgcolor)^fg($monitorfgcolor) $(echo $i | cut -b 3- ) "
+            M*)
+                text+="^bg($monitorbgcolor)^fg($monitorfgcolor) $(echo $i | cut -b 2- ) "
+                ;;
+            m*)
+                text+="^bg()^fg() $(echo $i | cut -b 2- ) "
                 ;;
             f*)
                 text+="^bg($bgcolor)^fg($workspacefginactive) $(echo $i | cut -b 2- ) "
@@ -52,4 +55,4 @@ do
     done
     text+="^bg()^fg()"
     echo $text
-done < <(bspc subscribe report)  | dzen2 $parameters
+done < <(bspc subscribe report)  | dzen2 $parameters -xs $1

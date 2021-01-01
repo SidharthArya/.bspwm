@@ -37,13 +37,12 @@ bspc rule -a PyCalculator:* state=floating
 #bspc config window_gap          -2
 
 bspc config split_ratio          0.50
-bspc config borderless_monocle   true
 #bspc config single_monocle   true
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
 bspc config pointer_follows_monitor true
 bspc config gapless_monocle true
-bspc config borderless_monocle true
+bspc config borderless_monocle false
 bspc config focused_border_color "#00ff00"
 bspc config normal_border_color "#005500"
 bspc config border_width 5

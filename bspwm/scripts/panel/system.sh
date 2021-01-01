@@ -28,10 +28,12 @@ BATTERY=""
 CPU=""
 DATE=""
 TEMP=""
-
+BRIGHTNESS=""
+VOLUME=""
 sh ~/.config/bspwm/scripts/panel/battery.sh  &
 sh ~/.config/bspwm/scripts/panel/cpu.sh  &
 sh ~/.config/bspwm/scripts/panel/date.sh  &
+sh ~/.config/bspwm/scripts/panel/brightness.sh  &
 while read -r line
       do
           case $line in
@@ -44,9 +46,13 @@ while read -r line
               MEM:*) MEM=${line##MEM:}
                      ;;
               DATE:*) DATE=${line##DATE:}
-                     ;;
+                      ;;
+              BRIGHTNESS:*) BRIGHTNESS=${line##BRIGHTNESS:}
+                            ;;
+              VOLUME:*) VOLUME=${line##VOLUME:}
+                        ;;
               *) ;;
           esac
-          echo "$TEMP $BATTERY $CPU $MEM $DATE "
+          echo "$BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
                   
-done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters
+done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters -xs $1

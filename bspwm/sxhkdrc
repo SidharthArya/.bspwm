@@ -132,6 +132,8 @@ super + shift + semicolon
 super + shift + apostrophe
       bspc node focused -d next.local -f
 super + e
+      bspc desktop next.\!occupied -f
+super + shift + e
       bspc node focused -d next.\!occupied -f
 super + apostrophe
       bspc desktop -f next.local
@@ -219,19 +221,19 @@ super + ctrl + space
 	bspc node -p cancel
 
 XF86MonBrightnessDown
-        brightnessctl s 100-
+        brightnessctl s 100- && echo 1 > /tmp/bspwm_brightness_volume
 XF86MonBrightnessUp
-        brightnessctl s +100
+        brightnessctl s +100 && echo 1 > /tmp/bspwm_brightness_volume
 XF86Tools
 	redshift -O 3500K
 super + XF86Tools
 	redshift -x
 XF86AudioRaiseVolume
-	sh ~/.config/sxhkd/scripts/volume.sh increase
+	sh ~/.config/sxhkd/scripts/volume.sh increase 
 XF86AudioLowerVolume
 	sh ~/.config/sxhkd/scripts/volume.sh decrease
 XF86AudioMute
-	pactl list sinks | grep -q Mute:.no && pactl set-sink-mute 0 1 || pactl set-sink-mute 0 0
+	pactl list sinks | grep -q Mute:.no && pactl set-sink-mute 0 1 || pactl set-sink-mute 0 0 && echo 1 > /tmp/bspwm_brightness_volume
 XF86AudioMute
         pamixer -t
         

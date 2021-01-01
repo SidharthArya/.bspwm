@@ -15,16 +15,16 @@ do
     CPU=$(echo $CPU/8 | bc)
     if [ $CPU -gt 50 ];
     then
-        CPU="^bg($CPU_HIGH_BG)^fg(#FF00FF) CPU:$CPU% "
+        CPU="^bg($CPU_HIGH_BG)^fg(#FF00FF) C:$CPU% "
     else
-        CPU="^bg($CPU_OK_BG)^fg(#000000) CPU:$CPU% "
+        CPU="^bg($CPU_OK_BG)^fg(#000000) C:$CPU% "
     fi
     MEM="$(echo $MEM*100/7820392 | bc)"
     if [ $MEM -gt 70 ];
     then
-        MEM="^bg($CPU_HIGH_BG)^fg(#FF00FF) MEM:$MEM% "
+        MEM="^bg($CPU_HIGH_BG)^fg(#FF00FF) M:$MEM% "
     else
-        MEM="^bg($CPU_OK_BG)^fg(#000000) MEM:$MEM% "
+        MEM="^bg($CPU_OK_BG)^fg(#000000) M:$MEM% "
     fi
     CPU+="^bg()^fg()"
     MEM+="^bg()^fg()"
