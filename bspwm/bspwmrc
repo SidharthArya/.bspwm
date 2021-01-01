@@ -1,8 +1,8 @@
 #!/bin/sh
-#polybar example &
-# polybar bottom &
-#source ~/.config/bspwm/profile
-sh ~/.config/bspwm/scripts/panel.sh
+xsetroot -cursor_name left_ptr
+nitrogen --restore
+if ! pgrep picom; then picom; fi &
+if ! pgrep dunst; then dunst; fi &
 # Keyboard
 xrdb -merge ~/.Xresources
 setxkbmap -layout us -option caps:hyper
@@ -19,8 +19,6 @@ xmodmap -e "keycode 36 = Hyper_R"
 xcape -e 'Hyper_L=Caps_Lock;Hyper_R=Return;Super_L=Super_L|a;Super_R=Print'
 sxhkd -c ~/.config/bspwm/sxhkdrc &
 # Personal
-echo 0 >> ~/Documents/Org/Tracking/.concentration
-echo bspwm > /tmp/wm
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 bspc config single_monocle true
 bspc rule -a Emacs state=tiled
@@ -32,12 +30,7 @@ bspc rule -a tabbed state=floating
 bspc rule -a Webcam:* state=floating
 bspc rule -a Calculator:* state=floating 
 bspc rule -a PyCalculator:* state=floating 
-#bspc config border_width         2
-
-#bspc config window_gap          -2
-
 bspc config split_ratio          0.50
-#bspc config single_monocle   true
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
 bspc config pointer_follows_monitor true
@@ -48,4 +41,6 @@ bspc config normal_border_color "#005500"
 bspc config border_width 5
 #bspc config external_rules_command ~/.config/sxhkd/scripts/rules/masterstack.sh
 sh ~/.config/sxhkd/scripts/battery_monitor.sh &
+sh ~/.config/bspwm/scripts/panel.sh
 sh ~/.config/sxhkd/scripts/session_start.sh
+

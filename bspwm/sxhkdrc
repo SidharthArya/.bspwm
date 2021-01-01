@@ -22,7 +22,7 @@ super + o
 super + u
         bspc node next.urgent -f 
 super + shift + q
-	pkill -f panel && bspc quit
+	 bspc quit && pkill -f panel
 super + {_,shift + }c
 	bspc node -{c,k}
 
@@ -285,7 +285,7 @@ hyper + apostrophe
 
 
 hyper + f
-      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-150 -e nnn -x
+      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-200 -e nnn -x
 hyper + n
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 
