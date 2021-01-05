@@ -91,12 +91,12 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 super + Tab
-	bspc node -f older.window.local  || bspc node -f next.window.mlocal || bspc node -f older.window
+	bspc node -f older.window.local  || bspc node -f next.window.local
 super + shift + Tab
-	bspc node -f next.window.local ||  bspc node -f next.window || bspc node -f older.window.local
+	bspc node -f next.window.local || bspc node -f older.window.local
 
 super + hyper + Tab
-	bspc node -f prev.window.local || bspc node -f prev.window || bspc node -f older.window.local 
+	bspc node -f prev.window.local || bspc node -f older.window.local 
         
 super + shift + {Down, Up}
 	bspc node -f {next,prev}.window.local
@@ -286,6 +286,8 @@ hyper + apostrophe
 
 hyper + f
       sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-200 -e nnn -x
+hyper + shift + f
+      ~/.config/sxhkd/scripts/scratchpad.sh class Finance st -c Finance -T Finance -g 50x30-0-200 -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
 hyper + n
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 
@@ -327,8 +329,6 @@ super + shift + g
 
 hyper + s
         st -e sh ~/.local/scripts/sync.sh
-
-
 
 hyper + shift + e
       sh ~/.local/scripts/emoji.sh

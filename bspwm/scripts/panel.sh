@@ -3,8 +3,9 @@ COUNTER=0
 for i in $(bspc query -M);
 do
     COUNTER=$(( $COUNTER + 1 ))
-    sh ~/.config/bspwm/scripts/panel/desktop.sh $COUNTER &
-    sh ~/.config/bspwm/scripts/panel/system.sh $COUNTER &
+    sh ~/.config/bspwm/scripts/panel/desktop.sh top $COUNTER &
+    sh ~/.config/bspwm/scripts/panel/system.sh top $COUNTER &
+    #xsh ~/.config/bspwm/scripts/panel/finance.sh bottom $COUNTER &
 done
 
 sleep 10

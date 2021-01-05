@@ -13,23 +13,27 @@ do
     MEM=$(free -k | head -n -1 | tail -n 1 | awk '{print $3}' )
     #echo $(( $CPU/$COUNT )) $(( $MEM/$COUNT ))
     CPU=$(echo $CPU/8 | bc)
+    COUTPUT=""
+    MOUTPUT=""
     if [ $CPU -gt 50 ];
     then
-        CPU="^bg($CPU_HIGH_BG)^fg(#FF00FF) C:$CPU% "
+        COUTPUT="^bg($CPU_HIGH_BG)^fg(#FF00FF)"
     else
-        CPU="^bg($CPU_OK_BG)^fg(#000000) C:$CPU% "
+        COUTPUT="^bg($CPU_OK_BG)^fg(#000000)"
     fi
     MEM="$(echo $MEM*100/7820392 | bc)"
     if [ $MEM -gt 70 ];
     then
-        MEM="^bg($CPU_HIGH_BG)^fg(#FF00FF) M:$MEM% "
+        MOUTPUT="^bg($CPU_HIGH_BG)^fg(#FF00FF)"
     else
-        MEM="^bg($CPU_OK_BG)^fg(#000000) M:$MEM% "
+        MOUTPUT="^bg($CPU_OK_BG)^fg(#000000)"
     fi
-    CPU+="^bg()^fg()"
-    MEM+="^bg()^fg()"
-    echo CPU:$CPU > /tmp/bspwm_panel
-    echo MEM:$MEM > /tmp/bspwm_panel
+    COUTPUT+="^ca(1, ~/.config/bspwm/scripts/panel/cpu_click.sh) C:$CPU% ^ca()"
+    COUTPUT+="^bg()^fg()"
+    MOUTPUT+="^ca(1, ~/.config/bspwm/scripts/panel/mem_clock.sh) M:$MEM% ^ca()"
+    MOUTPUT+="^bg()^fg()"
+    echo CPU:$COUTPUT > /tmp/bspwm_panel
+    echo MEM:$MOUTPUT > /tmp/bspwm_panel
     sleep 10
 done
 

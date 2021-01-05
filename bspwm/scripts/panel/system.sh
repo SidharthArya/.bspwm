@@ -1,9 +1,21 @@
 #!/bin/sh
-
-xpos=-960
-ypos=0
-width=960
-height=24
+HEIGHT=24
+WIDTH=960
+screenWidth=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | sed "s/x.*//")
+screenHeight=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | egrep -o "x[0-9]*" | sed "s/x//")
+POSITION=$1
+if [ "$POSITION" == "top" ];
+then
+    xpos=-$WIDTH
+    ypos=0
+    width=960
+    height=$HEIGHT
+else
+    xpos=-$WIDTH
+    ypos=$screenHeight
+    width=960
+    height=$HEIGHT
+fi
 fgcolor="#000000"
 bgcolor="#ffffff"
 monitorbgcolor="#005500"
@@ -13,7 +25,7 @@ workspaceocbginactive="#dddddd"
 workspaceocfginactive="#333333"
 workspacebginactive="#aaaaaa"
 workspacefginactive="#555555"
-font="NotoSansMono:size=12:antialias=true"
+font="NotoSansMono:size=10:antialias=true"
 colRed500='#f44336'
 colYellow500='#ffeb3b'
 colBlue500='#2196f3'
@@ -30,10 +42,12 @@ DATE=""
 TEMP=""
 BRIGHTNESS=""
 VOLUME=""
+CRYPTO=""
 sh ~/.config/bspwm/scripts/panel/battery.sh  &
 sh ~/.config/bspwm/scripts/panel/cpu.sh  &
 sh ~/.config/bspwm/scripts/panel/date.sh  &
 sh ~/.config/bspwm/scripts/panel/brightness.sh  &
+sh ~/.config/bspwm/scripts/panel/crypto.sh  &
 while read -r line
       do
           case $line in
@@ -51,8 +65,10 @@ while read -r line
                             ;;
               VOLUME:*) VOLUME=${line##VOLUME:}
                         ;;
+              CRYPTO:*) CRYPTO=${line##CRYPTO:}
+                        ;;
               *) ;;
           esac
-          echo "$BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
+          echo "$CRYPTO $BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
                   
 done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters -xs $1

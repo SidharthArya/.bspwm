@@ -10,7 +10,7 @@ do
     thermal=${thermal%%.*}
     if [ $thermal -gt 45 ];
     then
-       thermal="^bg($BATTERY_HIGH_BG)^fg(%FFFFFF) $thermal ^fg()^bg()"
+       thermal="^bg($BATTERY_HIGH_BG)^fg(%FFFFFF) T:$thermal ^fg()^bg()"
     else
        thermal=" T:$thermal "
     fi
