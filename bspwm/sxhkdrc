@@ -246,7 +246,7 @@ hyper + i; b
 	st -e bash -c 'upower -d | less'
 
 hyper + i; s
-	st -e bash -c 'sensors | less'
+	st -f NotoSansMono:size=9 -e bash -c 'sensors | less'
 hyper + i; p
 	st -e ytop
 
@@ -276,10 +276,10 @@ hyper + ctrl + XF86Favorites
       pkill -f
 
 hyper + a
-	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -f NotoSansMono:size=9 -e tmux
 
 hyper + apostrophe
-	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal  -f NotoSansMono:size=9 -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
@@ -287,7 +287,7 @@ hyper + apostrophe
 hyper + f
       sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -c Files -T Files -g 50x30-0-200 -e nnn -x
 hyper + shift + f
-      ~/.config/sxhkd/scripts/scratchpad.sh class Finance st -c Finance -T Finance -g 50x30-0-200 -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
+      ~/.config/sxhkd/scripts/scratchpad.sh class Finance st -c Finance -T Finance -g 50x30-0-200  -f NotoSansMono:size=9 -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
 hyper + n
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 
@@ -302,13 +302,13 @@ hyper + b
 hyper + shift + b
 	sh ~/.config/sxhkd/scripts/scratchpad.sh title Toolkit 
 hyper + c
-	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator -e genius
+	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator  -f NotoSansMono:size=9 -e R --vanilla
         
 hyper + shift + c
-	~/.config/sxhkd/scripts/scratchpad.sh class PyCalculator st -c PyCalculator sh ~/.config/sxhkd/scripts/calculator.sh
+	~/.config/sxhkd/scripts/scratchpad.sh class PyCalculator st -c PyCalculator  -f NotoSansMono:size=9 sh ~/.config/sxhkd/scripts/calculator.sh
 
 hyper + p
-	st -e htop
+	st  -f NotoSansMono:size=9 -e htop
 hyper + v
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
 super + d
@@ -333,4 +333,4 @@ hyper + s
 hyper + shift + e
       sh ~/.local/scripts/emoji.sh
 hyper + shift + t
-      st
+      st -f NotoSansMono:size=9 

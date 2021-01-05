@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 HEIGHT=24
 WIDTH=960
 screenWidth=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | sed "s/x.*//")
