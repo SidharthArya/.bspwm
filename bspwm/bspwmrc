@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 xsetroot -cursor_name left_ptr
 nitrogen --restore
 if ! pgrep picom; then picom; fi &

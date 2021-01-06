@@ -25,7 +25,7 @@ workspaceocbginactive="#dddddd"
 workspaceocfginactive="#333333"
 workspacebginactive="#aaaaaa"
 workspacefginactive="#555555"
-font="NotoSansMono:size=10:antialias=true"
+font="NotoSansMono:size=9:antialias=true"
 colRed500='#f44336'
 colYellow500='#ffeb3b'
 colBlue500='#2196f3'

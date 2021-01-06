@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 mkfifo /tmp/bspwm_brightness_volume
 
 VOLUME=$(pamixer --get-volume-human)
