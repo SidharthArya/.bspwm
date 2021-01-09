@@ -1,6 +1,6 @@
 #!/bin/sh
-DOWN="#FF0000"
-UP="#00FF00"
+DOWN="#600"
+UP="#060"
 LASTCRYPTO=0
 CRYPTOS="$(cat ~/Desktop/.crypto)"
 while true;
@@ -18,14 +18,14 @@ do
         
         if (( $(echo "$CRYPTO > $LASTCRYPTO" | bc -l ) ))
         then
-            COLOR="^bg($UP) "
+            COLOR="^bg($UP)^fg(#FFF) "
         elif (( $(echo "$CRYPTO < $LASTCRYPTO" | bc -l ) ))
         then
-            COLOR="^bg($DOWN) "
+            COLOR="^bg($DOWN)^fg(#FFF) "
         fi
         OUT+=$COLOR
         OUT+=$CRYPTO
-        OUT+=" ^bg()"
+        OUT+=" ^bg()^fg()"
     done
 echo $OUT > /tmp/bspwm_panel
 echo $OUT > /tmp/bspwm_finance_panel_tmp

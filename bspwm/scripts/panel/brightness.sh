@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mkfifo /tmp/bspwm_brightness_volume
+touch /tmp/bspwm_brightness_volume
 
 VOLUME=$(pamixer --get-volume-human)
 BRIGHTNESS=$(brightnessctl | tail -n 3 | head -n 1 | awk '{print $4}' | tr -d \(\))

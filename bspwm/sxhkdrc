@@ -287,7 +287,7 @@ hyper + apostrophe
 hyper + f
       sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -f NotoSansMono:size=9 -c Files -T Files -g 50x30-0-200 -e nnn -x
 hyper + shift + f
-      ~/.config/sxhkd/scripts/scratchpad.sh class Finance st -c Finance -T Finance -g 50x30-0-200  -f NotoSansMono:size=9 -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
+        sh ~/.config/bspwm/scripts/financepanel.sh 
 hyper + n
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 

@@ -35,7 +35,7 @@ parameters+=" -ta r -bg $bgcolor -fg $fgcolor"
 parameters+=" -title-name dzentop -dock"
 
 
-mkfifo /tmp/bspwm_panel
+touch /tmp/bspwm_panel
 BATTERY=""
 CPU=""
 DATE=""

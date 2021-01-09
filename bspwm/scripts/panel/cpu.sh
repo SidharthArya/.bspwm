@@ -1,7 +1,7 @@
 #!/bin/sh
 
-CPU_OK_BG="#00FF00"
-CPU_HIGH_BG="#FF0000"
+CPU_OK_BG="#060"
+CPU_HIGH_BG="#600"
 
 while true;
 do
@@ -17,16 +17,16 @@ do
     MOUTPUT=""
     if [ $CPU -gt 50 ];
     then
-        COUTPUT="^bg($CPU_HIGH_BG)^fg(#FF00FF)"
+        COUTPUT="^bg($CPU_HIGH_BG)^fg(#FFF)"
     else
-        COUTPUT="^bg($CPU_OK_BG)^fg(#000000)"
+        COUTPUT="^bg()^fg()"
     fi
     MEM="$(echo $MEM*100/7820392 | bc)"
     if [ $MEM -gt 70 ];
     then
-        MOUTPUT="^bg($CPU_HIGH_BG)^fg(#FF00FF)"
+        MOUTPUT="^bg($CPU_HIGH_BG)^fg(#FFF)"
     else
-        MOUTPUT="^bg($CPU_OK_BG)^fg(#000000)"
+        MOUTPUT="^bg()^fg()"
     fi
     COUTPUT+="^ca(1, ~/.config/bspwm/scripts/panel/cpu_click.sh) C:$CPU% ^ca()"
     COUTPUT+="^bg()^fg()"

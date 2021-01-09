@@ -1,4 +1,6 @@
 import sys
 from nsetools import Nse
 nse=Nse()
-print(nse.get_quote(sys.argv[1])["averagePrice"])
+INDEX=sys.argv[1]
+#print(INDEX)
+print(nse.get_index_quote(INDEX)["lastPrice"])

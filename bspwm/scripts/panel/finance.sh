@@ -8,14 +8,14 @@ POSITION=$1
 SCREEN=$2
 if [ "$POSITION" == "top" ];
 then
-    xpos=-$WIDTH
+    xpos=0
     ypos=0
     width=1920
     height=$HEIGHT
 else
     xpos=0
     ypos=$screenHeight
-    width=960
+    width=$screenWidth
     height=$HEIGHT
 fi
 fgcolor="#000000"
@@ -27,7 +27,7 @@ workspaceocbginactive="#dddddd"
 workspaceocfginactive="#333333"
 workspacebginactive="#aaaaaa"
 workspacefginactive="#555555"
-font="NotoSansMono:size=10:antialias=true"
+font="NotoSansMono:size=9:antialias=true"
 colRed500='#f44336'
 colYellow500='#ffeb3b'
 colBlue500='#2196f3'
@@ -35,10 +35,11 @@ parameters="  -x $xpos -y $ypos -h $height -w $width"
 parameters+=" -fn $font"
 parameters+=" -ta l -bg $bgcolor -fg $fgcolor"
 parameters+=" -title-name dzentop -dock -xs $SCREEN"
-mkfifo /tmp/bspwm_finance_panel
+touch /tmp/bspwm_finance_panel
 
-sh ~/.config/bspwm/scripts/panel/crypto.sh  &
-sh ~/.config/bspwm/scripts/panel/zerodha.sh  &
+#sh ~/.config/bspwm/scripts/panel/crypto.sh  &
+#sh ~/.config/bspwm/scripts/panel/nseprice.sh  &
+python ~/.config/bspwm/scripts/panel/assets/python/stock_index_info.py &
 while read -r line
       do
           case $line in
