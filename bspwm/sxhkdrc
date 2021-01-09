@@ -308,7 +308,10 @@ hyper + shift + c
 	~/.config/sxhkd/scripts/scratchpad.sh class PyCalculator st -c PyCalculator  -f NotoSansMono:size=9 sh ~/.config/sxhkd/scripts/calculator.sh
 
 hyper + p
-	st  -f NotoSansMono:size=9 -e htop
+      rofi-pass
+hyper + shift + p
+      rofi-pass --insert
+
 hyper + shift + v
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
 hyper + v
@@ -333,6 +336,7 @@ hyper + s
         st -e sh ~/.local/scripts/sync.sh
 
 hyper + shift + e
-      sh ~/.local/scripts/emoji.sh
+      rofimoji --rofi-args '-theme dmenu'
+
 hyper + shift + t
       st -f NotoSansMono:size=9 
