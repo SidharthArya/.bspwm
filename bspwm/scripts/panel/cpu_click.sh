@@ -1,3 +1,13 @@
 #!/bin/sh
 
-notify-send -u low "Cpu Usage" "$(ps -eo pcpu,comm | tail -n +2 | sort -n -r | head -n 10)"
+X=$(xdotool getmouselocation | awk '{print $1}')
+X=${X##*:}
+X=$(( $X - 50 ))
+PS="$(ps -eo pcpu,comm,pid | tail -n +2)"
+{
+    echo "%CPU PROGRAM"
+for i in  "$PS";
+do
+    echo "$PS" | sort -n -r | head -n 10 | awk '{print "^ca(1, kill " $3 ")" $1 "\ " $2 "^ca()"}' 
+     done }| dzen2 -p 1 -l 10 -x $(( $X -150 )) -w 300 -y 30 -m
+

@@ -297,10 +297,12 @@ hyper + m
 hyper + t
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
 hyper + b
-	sh ~/.config/sxhkd/scripts/scratchpad.sh title Navigator firefox
+	sh ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
 
 hyper + shift + b
-	sh ~/.config/sxhkd/scripts/scratchpad.sh title Toolkit 
+      xsel | xargs -I\{\} qutebrowser \"\{\}\"
+hyper + control + b
+      qutebrowser "g! $(echo |rofi -dmenu -p 'Search')"
 hyper + c
 	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator  -f NotoSansMono:size=9 -e R --vanilla
         
