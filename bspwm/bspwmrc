@@ -28,13 +28,14 @@ sxhkd -c ~/.config/bspwm/sxhkdrc &
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 bspc config single_monocle true
 bspc rule -a Emacs state=tiled
-bspc rule -a firefox:Toolkit state=floating sticky=on
+#bspc rule -a firefox:Toolkit state=floating sticky=on
+bspc rule -a *:Picture-in-Picture state=floating sticky=on
 bspc rule -a fzf state=fullscreen,floating
 bspc rule -a Zathura state=tiled
 bspc rule -a Files state=floating
 bspc rule -a tabbed state=floating
 bspc rule -a Webcam:* state=floating
-bspc rule -a Calculator:* state=floating 
+bspc rule -a Calculator:* state=floating
 bspc rule -a Finance:* state=fullscreen layer=above
 bspc rule -a PyCalculator:* state=floating 
 bspc config split_ratio          0.50

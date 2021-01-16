@@ -300,9 +300,9 @@ hyper + b
 	sh ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
 
 hyper + shift + b
-      xsel | xargs -I\{\} qutebrowser \"\{\}\"
+      xsel | xargs -I\{\} qutebrowser '\{\}'
 hyper + control + b
-      qutebrowser "g! $(echo |rofi -dmenu -p 'Search')"
+      qutebrowser "$(echo |rofi -dmenu -p 'Search')"
 hyper + c
 	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator  -f NotoSansMono:size=9 -e R --vanilla
         
