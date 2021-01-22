@@ -7,36 +7,41 @@ NOTIFY_SENT=false
 while true
 do
     thermal=$(acpi -t | awk '{print $4}')
-    thermal=${thermal%%.*}
+    thermaltemp=${thermal%%.*}
+    thermal=""
     if [ $thermal -gt 45 ];
     then
-       thermal="^bg($BATTERY_HIGH_BG)^fg(#FFF) T:$thermal ^fg()^bg()"
-    else
-       thermal=" T:$thermal "
+       thermal+="^bg($BATTERY_HIGH_BG)^fg(#FFF)"
     fi
-    line=$(cat /sys/class/power_supply/BAT0/capacity)
-    if [ $line -lt 11 ];
+    thermal+="^ca(1, sh ~/.config/bspwm/scripts/panel/clicks/thermal.sh)"
+    thermal+=" T:$thermaltemp "
+    thermal+="^ca()^fg()^bg()"
+    BATTERYCAP=$(cat /sys/class/power_supply/BAT0/capacity)
+    BATTERY=""
+    if [ $BATTERYCAP -lt 11 ];
     then
-        line=$(echo "^bg($BATTERY_LOW_BG)^fg(#FFF) B:$line% ")
+        BATTERY+="^bg($BATTERY_LOW_BG)^fg(#FFF)"
         if ! $NOTIFY_SENT
            then 
             notify-send -u critical "Power Manager" "Battery Low"
             NOTIFY_SENT=true
         fi
-    elif [ $line -eq 79 ];
+    elif [ $BATTERYCAP -eq 79 ];
     then
         if ! $NOTIFY_SENT
            then 
             notify-send -u critical "Power Manager" "Battery Charged"
             NOTIFY_SENT=true
         fi
-         line=$(echo "^bg($BATTERY_HIGH_BG)^fg(#FFF) B:$line% ")
+         BATTERY+="^bg($BATTERY_HIGH_BG)^fg(#FFF)"
     else
         NOTIFY_SENT=false
-        line=$(echo "^bg(#FFFFFF)^fg() B:$line% ")
+        BATTERY+="^bg(#FFFFFF)^fg()^ca()"
     fi
-    line+="^bg()^fg()"
-    echo BAT:$line > /tmp/bspwm_panel
+    BATTERY+="^ca(1, ~/.config/bspwm/scripts/panel/clicks/battery.sh)"
+    BATTERY+=" B:$BATTERYCAP% "
+    BATTERY+="^ca()^bg()^fg()"
+    echo BAT:$BATTERY > /tmp/bspwm_panel
     sleep 2
     echo THERMAL:$thermal > /tmp/bspwm_panel
     sleep 1m

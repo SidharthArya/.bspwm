@@ -63,7 +63,7 @@ do
                 text+="^bg(#ff55aa)^fg(#000000)^ca(1,bspc desktop -l next) $(echo $i | cut -b 2- ) ^ca()"
                 ;;
              G*)   
-                text+="^bg(#123456)^fg(#ffffff) $(echo $i | cut -b 2- )  "
+                text+="^bg(#123456)^fg(#ffffff)^ca(1, bspc node focused -g marked)^ca(2, bspc node focused -g sticky)^ca(3, bspc node focused -g private) $(echo $i | cut -b 2- )  ^ca()^ca()^ca()"
                 ;;
         esac
     done

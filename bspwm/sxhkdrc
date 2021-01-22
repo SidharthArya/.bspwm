@@ -243,12 +243,15 @@ XF86AudioMicMute
 
 
 hyper + i; b
-	st -e bash -c 'upower -d | less'
+      sh ~/.config/bspwm/scripts/panel/clicks/battery.sh
+      
 
 hyper + i; s
-	st -f NotoSansMono:size=9 -e bash -c 'sensors | less'
+      sh ~/.config/bspwm/scripts/panel/clicks/thermal.sh
 hyper + i; p
-	st -e ytop
+	urxvt -e htop
+hyper + apostrophe
+	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal - Terminal  -f NotoSansMono:size=9 -e tmux
 
 hyper + i;c
       st -e bash -c 'lscpu | less'
@@ -276,10 +279,10 @@ hyper + ctrl + XF86Favorites
       pkill -f
 
 hyper + a
-	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal -f NotoSansMono:size=9 -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal urxvt -name Terminal -e tmux
 
 hyper + apostrophe
-	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal -T Terminal  -f NotoSansMono:size=9 -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal urxvt -name Terminal -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
@@ -319,6 +322,8 @@ hyper + shift + v
 hyper + v
       ~/.config/sxhkd/scripts/scratchpad.sh class Neovim st -f NotoSansMono:size=9 -c Neovim nvim
 super + d
+      sh ~/.config/sxhkd/scripts/showdesktop.sh
+super + hyper + d
       bspc desktop next.occupied -f
 super + shift + d
       bspc desktop prev.occupied -f
@@ -335,7 +340,7 @@ super + shift + g
 ##       bspc config border_width $(( $(bspc config border_width) - 5 ))
 
 hyper + s
-        st -e sh ~/.local/scripts/sync.sh
+        urxvt -e sh ~/.local/scripts/sync.sh
 
 hyper + shift + e
       rofimoji --rofi-args '-theme dmenu'

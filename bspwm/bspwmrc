@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 xsetroot -cursor_name left_ptr
 nitrogen --restore
+wal -R
 if ! pgrep picom; then picom; fi &
 if ! pgrep dunst; then dunst; fi &
 source ~/.config/sxhkd/scripts/file_manager.sh 
