@@ -10,9 +10,10 @@ do
     for c in $CRYPTOS;
     do
         COUNTER=$(( $COUNTER + 1 ))
-        PRICES="$(curl https://api.wazirx.com/api/v2/trades?market=$(echo $c | tr '[:upper:]' '[:lower:]')inr | jq .[].price | tr -d \")"
+        MARKET="$(echo $c | tr '[:upper:]' '[:lower:]')inr"
+        PRICES="$(curl https://api.wazirx.com/api/v2/trades?market=$MARKET| jq .[].price | tr -d \")"
         CRYPTO=$(echo "$PRICES" | head -n 1)
-        OUT+=" $c:"
+        OUT+="^ca(1,sh ~/.config/bspwm/scripts/panel/clicks/cryptonews.sh $c) $c^ca():^ca(1, sh ~/.config/bspwm/scripts/panel/clicks/cryptodepth.sh $MARKET)"
         LASTCRYPTO=$(cat /tmp/bspwm_finance_panel_tmp | awk -F: -vCOUNTER=$(( 2+$COUNTER )) '{print $COUNTER}'| tr -d A-Za-z^\(\) | sed "s/\$DOWN//g" | sed "s/\$UP//g" )
         echo $CRYPTO $LASTCRYPTO
         
@@ -25,7 +26,7 @@ do
         fi
         OUT+=$COLOR
         OUT+=$CRYPTO
-        OUT+=" ^bg()^fg()"
+        OUT+=" ^bg()^fg()^ca()"
     done
 echo $OUT > /tmp/bspwm_panel
 echo $OUT > /tmp/bspwm_finance_panel_tmp

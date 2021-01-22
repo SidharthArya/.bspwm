@@ -250,8 +250,6 @@ hyper + i; s
       sh ~/.config/bspwm/scripts/panel/clicks/thermal.sh
 hyper + i; p
 	urxvt -e htop
-hyper + apostrophe
-	~/.config/sxhkd/scripts/scratchpad.sh class Terminal st -c Terminal - Terminal  -f NotoSansMono:size=9 -e tmux
 
 hyper + i;c
       st -e bash -c 'lscpu | less'
@@ -288,7 +286,7 @@ hyper + apostrophe
 
 
 hyper + f
-      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh class Files st -f NotoSansMono:size=9 -c Files -T Files -g 50x30-0-200 -e nnn -x
+      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files urxvt -name Files -g 50x30-0-200 -e nnn -x
 hyper + shift + f
         sh ~/.config/bspwm/scripts/financepanel.sh 
 hyper + n
@@ -307,10 +305,10 @@ hyper + shift + b
 hyper + control + b
       qutebrowser "$(echo |rofi -dmenu -p 'Search')"
 hyper + c
-	~/.config/sxhkd/scripts/scratchpad.sh class Calculator st -c Calculator  -f NotoSansMono:size=9 -e R --vanilla
+	~/.config/sxhkd/scripts/scratchpad.sh title Calculator urxvt -name Calculator -e R --vanilla
         
 hyper + shift + c
-	~/.config/sxhkd/scripts/scratchpad.sh class PyCalculator st -c PyCalculator  -f NotoSansMono:size=9 sh ~/.config/sxhkd/scripts/calculator.sh
+	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator urxvt -name PyCalculator  -e  sh ~/.config/sxhkd/scripts/calculator.sh
 
 hyper + p
       rofi-pass
@@ -320,7 +318,7 @@ hyper + shift + p
 hyper + shift + v
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
 hyper + v
-      ~/.config/sxhkd/scripts/scratchpad.sh class Neovim st -f NotoSansMono:size=9 -c Neovim nvim
+      ~/.config/sxhkd/scripts/scratchpad.sh title Neovim urxvt -name Neovim -e nvim
 super + d
       sh ~/.config/sxhkd/scripts/showdesktop.sh
 super + hyper + d
@@ -346,4 +344,4 @@ hyper + shift + e
       rofimoji --rofi-args '-theme dmenu'
 
 hyper + shift + t
-      st -f NotoSansMono:size=9 
+      urxvt 
