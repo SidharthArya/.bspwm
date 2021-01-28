@@ -345,3 +345,6 @@ hyper + shift + e
 
 hyper + shift + t
       urxvt 
+
+super + BackSpace
+      sh ~/.config/bspwm/scripts/hypertoggle.sh

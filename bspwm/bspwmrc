@@ -12,19 +12,7 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 # Keyboard
 xrdb -merge ~/.Xresources
-setxkbmap -layout us -option caps:hyper
-setxkbmap -layout us -option print:super
-xmodmap -e 'remove mod4 = Hyper_L'
-xmodmap -e 'add mod3 = Hyper_L'
-xmodmap -e 'add mod3 = Hyper_R'
-xmodmap -e "keycode 250 = Print"
-xmodmap -e "keycode 252 = Caps_Lock"
-xmodmap -e "keycode 253 = Return"
-xmodmap -e "keycode 107 = Super_R"
-xmodmap -e "keycode 66 = Hyper_L"
-xmodmap -e "keycode 36 = Hyper_R"
-xcape -e 'Hyper_L=Caps_Lock;Hyper_R=Return;Super_L=Super_L|a;Super_R=Print'
-sxhkd -c ~/.config/bspwm/sxhkdrc &
+sh ~/.config/bspwm/scripts/hypertoggle.sh init &
 # Personal
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 bspc config single_monocle true
