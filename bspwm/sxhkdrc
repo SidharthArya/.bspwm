@@ -91,7 +91,7 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 super + Tab
-	bspc node -f older.window.local.normal  || bspc node -f next.window.local
+	bspc node -f older.window.local.!below  || bspc node -f next.window.local
 super + shift + Tab
 	bspc node -f next.window.local.normal || bspc node -f older.window.local
 
@@ -253,7 +253,7 @@ hyper + i; b
 hyper + i; s
       sh ~/.config/bspwm/scripts/panel/clicks/thermal.sh
 hyper + i; p
-	st -e htop
+	termite -e htop
 
 hyper + i;c
       st -e bash -c 'lscpu | less'
@@ -281,16 +281,16 @@ hyper + ctrl + XF86Favorites
       pkill -f
 
 hyper + a
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal termite --name Terminal -e tmux
 
 hyper + apostrophe
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal termite --name Terminal -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
 
 hyper + f
-      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -n Files -g 50x30-0-200 -e nnn -x
+      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files termite --name Files -g 50x30-0-200 -e nnn -x
 hyper + shift + f
         sh ~/.config/bspwm/scripts/financepanel.sh 
 hyper + n
@@ -309,10 +309,10 @@ hyper + shift + b
 hyper + control + b
       qutebrowser "$(echo |rofi -dmenu -p 'Search')"
 hyper + c
-	~/.config/sxhkd/scripts/scratchpad.sh title Calculator st -n Calculator -e R --vanilla
+	~/.config/sxhkd/scripts/scratchpad.sh title Calculator termite --name Calculator -e R --vanilla
         
 hyper + shift + c
-	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator st -n PyCalculator  -e  sh ~/.config/sxhkd/scripts/calculator.sh
+	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator termite --name PyCalculator  -e  sh ~/.config/sxhkd/scripts/calculator.sh
 
 hyper + p
       rofi-pass
@@ -322,7 +322,7 @@ hyper + shift + p
 hyper + shift + v
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
 hyper + v
-      ~/.config/sxhkd/scripts/scratchpad.sh title Neovim st -n Neovim -e nvim
+      ~/.config/sxhkd/scripts/scratchpad.sh title Neovim termite --name Neovim -e nvim
 super + d
       sh ~/.config/sxhkd/scripts/showdesktop.sh
 super + hyper + d
@@ -342,13 +342,13 @@ super + shift + g
 ##       bspc config border_width $(( $(bspc config border_width) - 5 ))
 
 hyper + s
-        st -e sh ~/.local/scripts/sync.sh
+        termite -e sh ~/.local/scripts/sync.sh
 
 hyper + shift + e
       rofimoji --rofi-args '-theme dmenu'
 
 hyper + shift + t
-      st
+      termite
 
 super + BackSpace
       sh ~/.config/bspwm/scripts/hypertoggle.sh
