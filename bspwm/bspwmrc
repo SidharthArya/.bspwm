@@ -5,11 +5,6 @@ wal -R
 #if ! pgrep picom; then picom; fi &
 if ! pgrep dunst; then dunst; fi &
 source ~/.config/sxhkd/scripts/file_manager.sh 
-
-
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
 # Keyboard
 xrdb -merge ~/.Xresources
 sh ~/.config/bspwm/scripts/hypertoggle.sh init &

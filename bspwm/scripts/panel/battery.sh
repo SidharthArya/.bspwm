@@ -2,6 +2,7 @@
 BATTERY_LOW_BG="#600"
 BATTERY_OK_BG="#060"
 BATTERY_HIGH_BG="#060"
+TEMP_HIGH_BG="#F00"
 
 NOTIFY_SENT=false
 while true
@@ -9,9 +10,13 @@ do
     thermal=$(acpi -t | awk '{print $4}')
     thermaltemp=${thermal%%.*}
     thermal=""
-    if [ $thermal -gt 45 ];
+    if [ $thermaltemp -gt 60 ];
     then
-       thermal+="^bg($BATTERY_HIGH_BG)^fg(#FFF)"
+        thermal+="^bg($TEMP_HIGH_BG)^fg(#FFF)"
+        notify-send -u critical "Thermals" "Temparature High"
+    elif [ $thermaltemp -gt 50 ];
+    then
+        thermal+="^bg($TEMP_HIGH_BG)^fg(#FFF)"
     fi
     thermal+="^ca(1, sh ~/.config/bspwm/scripts/panel/clicks/thermal.sh)"
     thermal+=" T:$thermaltemp "
