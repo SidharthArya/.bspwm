@@ -290,7 +290,7 @@ hyper + apostrophe
 
 
 hyper + f
-      sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files termite --name Files -e nnn && sleep 0.2 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
+      (sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files termite --name Files -e nnn & ) && sleep 0.2 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
         sh ~/.config/bspwm/scripts/financepanel.sh 
 hyper + n
@@ -309,10 +309,10 @@ hyper + shift + b
 hyper + control + b
       qutebrowser "$(echo |rofi -dmenu -p 'Search')"
 hyper + c
-	~/.config/sxhkd/scripts/scratchpad.sh title Calculator termite --name Calculator -e R --vanilla
+	~/.config/sxhkd/scripts/scratchpad.sh title Calculator termite --name Calculator -e  ~/.config/sxhkd/scripts/rcalculator.sh
         
 hyper + shift + c
-	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator termite --name PyCalculator  -e  sh ~/.config/sxhkd/scripts/calculator.sh
+	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator termite --name PyCalculator  -e  ~/.config/sxhkd/scripts/calculator.sh
 
 hyper + p
       rofi-pass
