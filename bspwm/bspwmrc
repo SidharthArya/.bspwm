@@ -31,6 +31,6 @@ bspc config focused_border_color "#00ff00"
 bspc config normal_border_color "#005500"
 bspc config border_width 5
 #bspc config external_rules_command ~/.config/sxhkd/scripts/rules/masterstack.sh
-sh ~/.config/bspwm/scripts/panel.sh
+sh ~/.config/bspwm/scripts/panel.sh &
 sh ~/.config/sxhkd/scripts/session_start.sh
 
