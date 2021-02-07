@@ -145,8 +145,6 @@ super + grave
         
 hyper + e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
-hyper + d
-      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
 hyper + l
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
 hyper + o

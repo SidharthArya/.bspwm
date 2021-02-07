@@ -18,4 +18,3 @@ with open("/home/arya/Desktop/.stocks","r") as stocks:
             ch=True
         bg="^bg(#0F0)" if ch else "^bg($F00)"
         print(bg, symbol, price, change, average, dayLow, dayHigh, low52, high52, close, "^bg()")
-        

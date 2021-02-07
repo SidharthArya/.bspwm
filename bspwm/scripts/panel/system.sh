@@ -8,7 +8,7 @@ if [ "$POSITION" == "top" ];
 then
     xpos=-$WIDTH
     ypos=0
-    width=960
+    width=1060
     height=$HEIGHT
 else
     xpos=-$WIDTH
