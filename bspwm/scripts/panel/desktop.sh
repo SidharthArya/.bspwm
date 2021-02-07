@@ -1,20 +1,27 @@
 #!/usr/bin/env bash
 HEIGHT=24
-WIDTH=960
 screenWidth=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | sed "s/x.*//")
 screenHeight=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | egrep -o "x[0-9]*" | sed "s/x//")
 POSITION=$1
 SCREEN=$2
+if [ $SCREEN == '1' ];
+then
+    WIDTH=960
+else
+    WIDTH=$screenWidth
+fi
+notify-send $WIDTH
+
 if [ "$POSITION" == "top" ];
 then
     xpos=0
     ypos=0
-    width=960
+    width=$WIDTH
     height=$HEIGHT
 else
     xpos=0
     ypos=$screenHeight
-    width=960
+    width=$WIDTH
     height=$HEIGHT
 fi
 fgcolor="#000000"
