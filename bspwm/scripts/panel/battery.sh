@@ -19,7 +19,7 @@ do
         thermal+="^bg($TEMP_HIGH_BG)^fg(#FFF)"
     fi
     thermal+="^ca(1, sh ~/.config/bspwm/scripts/panel/clicks/thermal.sh)"
-    thermal+=" T:$thermaltemp "
+    thermal+="T:$thermaltemp"
     thermal+="^ca()^fg()^bg()"
     BATTERYCAP=$(cat /sys/class/power_supply/BAT0/capacity)
     BATTERY=""
@@ -44,7 +44,7 @@ do
         BATTERY+="^bg(#FFFFFF)^fg()^ca()"
     fi
     BATTERY+="^ca(1, ~/.config/bspwm/scripts/panel/clicks/battery.sh)"
-    BATTERY+=" B:$BATTERYCAP% "
+    BATTERY+="B:$BATTERYCAP%"
     BATTERY+="^ca()^bg()^fg()"
     echo BAT:$BATTERY > /tmp/bspwm_panel
     sleep 2

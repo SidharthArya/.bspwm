@@ -47,6 +47,8 @@ sh ~/.config/bspwm/scripts/panel/battery.sh  &
 sh ~/.config/bspwm/scripts/panel/cpu.sh  &
 sh ~/.config/bspwm/scripts/panel/date.sh  &
 sh ~/.config/bspwm/scripts/panel/brightness.sh  &
+sh ~/.config/bspwm/scripts/panel/points.sh  &
+sh ~/.config/bspwm/scripts/panel/assets.sh  &
 sh ~/.config/bspwm/scripts/panel/crypto.sh  &
 while read -r line
       do
@@ -67,8 +69,12 @@ while read -r line
                         ;;
               CRYPTO:*) CRYPTO=${line##CRYPTO:}
                         ;;
+              POINTS:*) POINTS=${line##POINTS:}
+                        ;;
+              ASSETS:*) ASSETS=${line##ASSETS:}
+                        ;;
               *) ;;
           esac
-          echo "$CRYPTO $BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
+          echo "$CRYPTO $POINTS $ASSETS $BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
                   
 done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters -xs $1
