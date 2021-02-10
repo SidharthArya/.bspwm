@@ -142,6 +142,8 @@ super + shift + bracket{left,right}
 super + grave
 	bspc desktop last.local -f
 
+super + shift + grave
+	bspc node -d last.local -f
         
 hyper + e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs

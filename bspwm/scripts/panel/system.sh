@@ -4,18 +4,20 @@ WIDTH=960
 screenWidth=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | sed "s/x.*//")
 screenHeight=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | egrep -o "x[0-9]*" | sed "s/x//")
 POSITION=$1
+SCREEN=$2
 if [ "$POSITION" == "top" ];
 then
     xpos=-$WIDTH
     ypos=0
-    width=1060
     height=$HEIGHT
+    width=$WIDTH
 else
     xpos=-$WIDTH
     ypos=$screenHeight
-    width=960
     height=$HEIGHT
+    width=$WIDTH
 fi
+
 fgcolor="#000000"
 bgcolor="#ffffff"
 monitorbgcolor="#005500"
@@ -32,9 +34,7 @@ colBlue500='#2196f3'
 parameters="  -x $xpos -y $ypos -h $height -w $width" 
 parameters+=" -fn $font"
 parameters+=" -ta r -bg $bgcolor -fg $fgcolor"
-parameters+=" -title-name dzentop -dock"
-
-
+parameters+=" -title-name dzentop -dock -xs $SCREEN"
 touch /tmp/bspwm_panel
 BATTERY=""
 CPU=""
@@ -77,4 +77,4 @@ while read -r line
           esac
           echo "$CRYPTO $POINTS $ASSETS $BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
                   
-done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters -xs $1
+done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters

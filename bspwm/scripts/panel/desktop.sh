@@ -10,7 +10,6 @@ then
 else
     WIDTH=$screenWidth
 fi
-notify-send $WIDTH
 
 if [ "$POSITION" == "top" ];
 then
