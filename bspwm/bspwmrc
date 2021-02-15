@@ -34,3 +34,4 @@ bspc config border_width 5
 sh ~/.config/bspwm/scripts/panel.sh &
 sh ~/.config/sxhkd/scripts/session_start.sh
 
+mpv /usr/share/sounds/freedesktop/stereo/service-login.oga
