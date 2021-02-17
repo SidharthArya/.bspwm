@@ -29,6 +29,7 @@ do
         if ! $NOTIFY_SENT
            then 
             notify-send -u critical "Power Manager" "Battery Low"
+	    mpv /usr/share/sounds/freedesktop/stereo/suspend-error.oga
             NOTIFY_SENT=true
         fi
     elif [ $BATTERYCAP -eq 79 ];
@@ -36,6 +37,7 @@ do
         if ! $NOTIFY_SENT
            then 
             notify-send -u critical "Power Manager" "Battery Charged"
+	    mpv /usr/share/sounds/freedesktop/stereo/dialog-error.oga
             NOTIFY_SENT=true
         fi
          BATTERY+="^bg($BATTERY_HIGH_BG)^fg(#FFF)"
