@@ -354,3 +354,7 @@ hyper + shift + t
 
 super + BackSpace
       sh ~/.config/bspwm/scripts/hypertoggle.sh
+
+
+super + shift + s
+      st -f NotoSansMono:size=30 -e sh /home/arya/.config/sxhkd/scripts/speedread.sh
