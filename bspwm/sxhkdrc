@@ -123,9 +123,6 @@ super + bracketright
 super + semicolon
       bspc desktop -f prev.local
 
-super + apostrophe
-      bspc desktop -f next.local
-
 super + shift + semicolon
       bspc node focused -d prev.local -f
 
@@ -325,9 +322,9 @@ hyper + shift + v
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
 hyper + v
       ~/.config/sxhkd/scripts/scratchpad.sh title Neovim termite --name Neovim -e nvim
-super + d
+super + backslash
       sh ~/.config/sxhkd/scripts/showdesktop.sh
-super + hyper + d
+super + d
       bspc desktop next.occupied -f
 super + shift + d
       bspc desktop prev.occupied -f
@@ -357,4 +354,4 @@ super + BackSpace
 
 
 super + shift + s
-      st -f NotoSansMono:size=30 -e sh /home/arya/.config/sxhkd/scripts/speedread.sh
+      st -f NotoSansMono:size=25 -e sh /home/arya/.config/sxhkd/scripts/speedread.sh
