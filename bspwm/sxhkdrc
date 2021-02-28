@@ -142,6 +142,8 @@ super + grave
 super + shift + grave
 	bspc node -d last.local -f
         
+hyper + z
+      sh ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
 hyper + e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 hyper + l
@@ -287,7 +289,7 @@ hyper + apostrophe
 
 
 hyper + f
-      (sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files termite --name Files -e nnn & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
+      (sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files termite --name Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
         sh ~/.config/bspwm/scripts/financepanel.sh 
 hyper + n
@@ -354,4 +356,6 @@ super + BackSpace
 
 
 super + shift + s
-      st -f NotoSansMono:size=25 -e sh /home/arya/.config/sxhkd/scripts/speedread.sh
+      st -f NotoSansMono:size=25 -e sh /home/arya/.config/sxhkd/scripts/speedread.shA
+
+
