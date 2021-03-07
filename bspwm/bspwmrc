@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+alias st "st -f NotoSansMono:size=12"
 xsetroot -cursor_name left_ptr
 nitrogen --restore
 wal -R

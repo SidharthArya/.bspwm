@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 HEIGHT=24
 screenWidth=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | sed "s/x.*//")
 screenHeight=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | egrep -o "x[0-9]*" | sed "s/x//")
@@ -75,4 +75,4 @@ do
     done
     text+="^bg()^fg()"
     echo $text
-done < <(bspc subscribe report)  | dzen2 $parameters 
+done < <(bspc subscribe report)  | dzen2 $parameters

@@ -252,7 +252,7 @@ hyper + i; b
 hyper + i; s
       sh ~/.config/bspwm/scripts/panel/clicks/thermal.sh
 hyper + i; p
-	termite -e htop
+	st -e htop
 
 hyper + i;c
       st -e bash -c 'lscpu | less'
