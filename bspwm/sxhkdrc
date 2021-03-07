@@ -283,7 +283,7 @@ hyper + a
 	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
 
 hyper + apostrophe
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal termite --name Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
@@ -357,5 +357,3 @@ super + BackSpace
 
 super + shift + s
       st -f NotoSansMono:size=25 -e sh /home/arya/.config/sxhkd/scripts/speedread.shA
-
-
