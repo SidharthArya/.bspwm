@@ -280,7 +280,7 @@ hyper + ctrl + XF86Favorites
       pkill -f
 
 hyper + a
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f NotoSansMono:size=10 -n Terminal -e tmux
 
 hyper + apostrophe
 	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux

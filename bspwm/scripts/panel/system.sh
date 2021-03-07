@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 HEIGHT=24
 WIDTH=960
 screenWidth=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | sed "s/x.*//")
@@ -43,13 +43,13 @@ TEMP=""
 BRIGHTNESS=""
 VOLUME=""
 CRYPTO=""
-sh ~/.config/bspwm/scripts/panel/battery.sh  &
-sh ~/.config/bspwm/scripts/panel/cpu.sh  &
-sh ~/.config/bspwm/scripts/panel/date.sh  &
-sh ~/.config/bspwm/scripts/panel/brightness.sh  &
-sh ~/.config/bspwm/scripts/panel/points.sh  &
-sh ~/.config/bspwm/scripts/panel/assets.sh  &
-sh ~/.config/bspwm/scripts/panel/crypto.sh  &
+bash ~/.config/bspwm/scripts/panel/battery.sh  &
+bash ~/.config/bspwm/scripts/panel/cpu.sh  &
+bash ~/.config/bspwm/scripts/panel/date.sh  &
+bash ~/.config/bspwm/scripts/panel/brightness.sh  &
+bash ~/.config/bspwm/scripts/panel/points.sh  &
+bash ~/.config/bspwm/scripts/panel/assets.sh  &
+bash ~/.config/bspwm/scripts/panel/crypto.sh  &
 while read -r line
       do
           case $line in
