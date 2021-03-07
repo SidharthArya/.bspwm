@@ -1,15 +1,15 @@
 # Windows Specific
 super + a
-	rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
+      rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
 
 super + shift + a
       sh ~/.config/sxhkd/scripts/run.sh
 
 super + r
-	pkill -USR1 -x sxhkd
+      pkill -USR1 -x sxhkd
         
 super + shift + r
-	pkill -f panel; bspc wm -r
+      pkill -f panel; bspc wm -r
 
 super + shift + b
       sh ~/.config/sxhkd/scripts/bar.sh
@@ -280,7 +280,7 @@ hyper + ctrl + XF86Favorites
       pkill -f
 
 hyper + a
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal termite --name Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
 
 hyper + apostrophe
 	~/.config/sxhkd/scripts/scratchpad.sh title Terminal termite --name Terminal -e tmux
