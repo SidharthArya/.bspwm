@@ -13,7 +13,7 @@ xmodmap -e "keycode 253 = Return"
 xmodmap -e "keycode 107 = Super_R"
 xmodmap -e "keycode 66 = Hyper_L"
 xmodmap -e "keycode 36 = Hyper_R"
-xcape -e 'Hyper_L=Caps_Lock;Hyper_R=Return;Super_L=Escape;Super_R=Print'
+xcape -e 'Super_L=Hyper_L+a'
 sxhkd -c ~/.config/bspwm/sxhkdrc
     ;;
     *)

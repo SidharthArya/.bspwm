@@ -279,11 +279,9 @@ hyper + shift + XF86Favorites
 hyper + ctrl + XF86Favorites
       pkill -f
 
-hyper + a
+hyper + a; a
 	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f NotoSansMono:size=10 -n Terminal -e tmux
 
-hyper + apostrophe
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
