@@ -5,7 +5,7 @@ nitrogen --restore
 wal -R
 #if ! pgrep picom; then picom; fi &
 if ! pgrep dunst; then dunst; fi &
-source ~/.config/sxhkd/scripts/file_manager.sh 
+source ~/.config/sxhkd/scripts/file_manager.sh
 # Keyboard
 xrdb -merge ~/.Xresources
 sh ~/.config/bspwm/scripts/hypertoggle.sh init &
