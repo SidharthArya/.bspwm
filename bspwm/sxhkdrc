@@ -1,5 +1,5 @@
 # Windows Specific
-super + a
+super + a; r
       rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
 
 super + shift + a
@@ -142,13 +142,13 @@ super + grave
 super + shift + grave
 	bspc node -d last.local -f
         
-hyper + z
+hyper + a;z
       sh ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
-hyper + e
+hyper + a;e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
-hyper + l
+hyper + a;l
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
-hyper + o
+hyper + a;o
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 # wclass News emacs --config news
 ## super + g;f
@@ -187,9 +187,9 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
         sh ~/.config/sxhkd/scripts/volume.sh decrease
 
-hyper + d
+hyper + a; d
 	 emacs --script ~/.emacs.d/scripts/daily
-hyper + q
+hyper + a;q
 	 emacs --script ~/.emacs.d/scripts/quote
          
 ## super + r; t
@@ -279,7 +279,7 @@ hyper + shift + XF86Favorites
 hyper + ctrl + XF86Favorites
       pkill -f
 
-hyper + a; a
+super + a;a
 	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f NotoSansMono:size=10 -n Terminal -e tmux
 
 ## super + d; b
@@ -290,15 +290,15 @@ hyper + f
       (sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files termite --name Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
         sh ~/.config/bspwm/scripts/financepanel.sh 
-hyper + n
+super + a;n
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 
-hyper + m
+super + a;m
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Mail emacs --config mail
 
-hyper + t
+super + a;t
 	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
-hyper + b
+super + a; b
 	sh ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
 
 hyper + shift + b

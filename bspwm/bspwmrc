@@ -9,6 +9,7 @@ source ~/.config/sxhkd/scripts/file_manager.sh
 # Keyboard
 xrdb -merge ~/.Xresources
 #bash ~/.config/bspwm/scripts/hypertoggle.sh init &
+xcape -e 'Super_L=Super_L|a'
 sxhkd -c ~/.config/bspwm/sxhkdrc &
 # Personal
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
