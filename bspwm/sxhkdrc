@@ -2,6 +2,8 @@
 super + a; r
       rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
 
+super + a; R
+      rofi -show combi -theme gruvbox-dark -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
 super + shift + a
       sh ~/.config/sxhkd/scripts/run.sh
 
@@ -12,7 +14,7 @@ super + shift + r
       pkill -f panel; bspc wm -r
 
 super + shift + b
-      sh ~/.config/sxhkd/scripts/bar.sh
+      bash ~/.config/sxhkd/scripts/bar.sh
 super + shift + n
       bspc node -B
 
@@ -38,7 +40,7 @@ super + Return
 	bspc node -s biggest.local
 
 
-super + {t,shift + t,f,x}
+super + {shift + x,ctrl + x,f,x}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 super + ctrl + c
@@ -48,7 +50,7 @@ super + m
       bspc node -g marked && bspc config -n "$(bspc query -N -n .marked)" border-width 10
 
 super + shift + m; semicolon
-           echo | dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked
+           echo | dmenu | xargs -I{} sh ~/.config/sxhkd/scripts/bspc_query_op.sh .marked
  
 super + shift + m; f
            sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -f
@@ -58,9 +60,9 @@ super + shift + m; b
            sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -d focused -f
 
 super + shift + m; {1-9,0}
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -d {1-9,0}
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -d {1-9,0}
 super + shift + m; m
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -g marked=off
+           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -g marked=off
 super + shift + m; c
            sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -c
 
@@ -91,10 +93,9 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 super + Tab
-	bspc node -f older.window.local.!below  || bspc node -f next.window.local
+	bspc node next.window.local.\!hidden  -f 
 super + shift + Tab
-	bspc node -f next.window.local.normal || bspc node -f older.window.local
-
+	bspc node prev.window.local.\!hidden -f
 super + hyper + Tab
 	bspc node -f prev.window.local || bspc node -f older.window.local 
         
@@ -280,14 +281,16 @@ hyper + ctrl + XF86Favorites
       pkill -f
 
 super + a;a
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f NotoSansMono:size=10 -n Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -e tmux
 
+super + shift + Return
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
 
-hyper + f
-      (sh ~/.config/sxhkd/scripts/xdotoggle.sh tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files termite --name Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
+super + a; f
+      (sh ~/.config/sxhkd/scripts/scratchpad.sh class tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
         sh ~/.config/bspwm/scripts/financepanel.sh 
 super + a;n
@@ -301,29 +304,27 @@ super + a;t
 super + a; b
 	sh ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
 
-hyper + shift + b
+super + a;shift + b
 	sh ~/.local/scripts/points-use.sh
 hyper + shift + b
       xsel | xargs -I\{\} qutebrowser '\{\}'
 hyper + control + b
       qutebrowser "$(echo |rofi -dmenu -p 'Search')"
-hyper + c
-	~/.config/sxhkd/scripts/scratchpad.sh title Calculator termite --name Calculator -e  ~/.config/sxhkd/scripts/rcalculator.sh
+super + a; c
+	~/.config/sxhkd/scripts/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.config/sxhkd/scripts/rcalculator.sh
         
 hyper + shift + c
 	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator termite --name PyCalculator  -e  ~/.config/sxhkd/scripts/calculator.sh
 
-hyper + p
+super + a; p
       rofi-pass
-hyper + shift + p
+super + a; shift + p
       rofi-pass --insert
 
-hyper + shift + v
+super + a; V
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
-hyper + v
-      ~/.config/sxhkd/scripts/scratchpad.sh title Neovim termite --name Neovim -e nvim
-super + backslash
-      sh ~/.config/sxhkd/scripts/showdesktop.sh
+# super + backslash
+#       sh ~/.config/sxhkd/scripts/showdesktop.sh
 super + d
       bspc desktop next.occupied -f
 super + shift + d
@@ -346,12 +347,11 @@ hyper + s
 hyper + shift + e
       rofimoji --rofi-args '-theme dmenu'
 
-hyper + shift + t
-      termite
-
-super + BackSpace
-      sh ~/.config/bspwm/scripts/hypertoggle.sh
-
+super + shift + t
+      st
 
 super + shift + s
-      st -f NotoSansMono:size=25 -e sh /home/arya/.config/sxhkd/scripts/speedread.shA
+      st -f NotoSansMono:size=25 -e sh /home/arya/.config/sxhkd/scripts/speedread.sh
+
+super + t
+      sh ~/.config/bspwm/scripts/helpers/trayer.sh

@@ -1,7 +1,7 @@
 #!/bin/sh
 BATTERY_LOW_BG="#600"
 BATTERY_OK_BG="#060"
-BATTERY_HIGH_BG="#060"
+BATTERY_HIGH_BG=$greencolor
 TEMP_HIGH_BG="#F00"
 
 NOTIFY_SENT=false
@@ -43,7 +43,7 @@ do
          BATTERY+="^bg($BATTERY_HIGH_BG)^fg(#FFF)"
     else
         NOTIFY_SENT=false
-        BATTERY+="^bg(#FFFFFF)^fg()^ca()"
+        BATTERY+="^bg($bgcolor)^fg()^ca()"
     fi
     BATTERY+="^ca(1, ~/.config/bspwm/scripts/panel/clicks/battery.sh)"
     BATTERY+="B:$BATTERYCAP%"

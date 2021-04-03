@@ -1,11 +1,15 @@
 #!/usr/bin/env sh
 alias st "st -f NotoSansMono:size=12"
 xsetroot -cursor_name left_ptr
-nitrogen --restore
-wal -R
-#if ! pgrep picom; then picom; fi &
+pcmanfm --desktop &
+
+#nitrogen --restore
+
+if ! pgrep picom; then picom; fi &
+#if ! pgrep plank; then plank; fi &
 if ! pgrep dunst; then dunst; fi &
 source ~/.config/sxhkd/scripts/file_manager.sh
+fcitx -d
 # Keyboard
 xrdb -merge ~/.Xresources
 #bash ~/.config/bspwm/scripts/hypertoggle.sh init &
@@ -24,17 +28,26 @@ bspc rule -a tabbed state=floating
 bspc rule -a Webcam:* state=floating
 bspc rule -a *:Calculator state=floating
 bspc rule -a *:PyCalculator state=floating 
-bspc config split_ratio          0.50
+bspc rule -a Plank layer=above
+bspc config split_ratio          0.54
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
-bspc config pointer_follows_monitor true
+# bspc config pointer_follows_monitor true
+bspc config initial_polarity first_child
 bspc config gapless_monocle true
+bspc config removal_adjustment false
 bspc config borderless_monocle false
-bspc config focused_border_color "#00ff00"
-bspc config normal_border_color "#005500"
-bspc config border_width 5
-#bspc config external_rules_command ~/.config/sxhkd/scripts/rules/masterstack.sh
+bspc config focused_border_color "#c2c2c7"
+bspc config normal_border_color "#111115"
+bspc config border_width 2
+sh ~/.config/bspwm/scripts/layouts.sh tall
 sh ~/.config/bspwm/scripts/panel.sh &
 sh ~/.config/sxhkd/scripts/session_start.sh
 
 mpv /usr/share/sounds/freedesktop/stereo/service-login.oga
+if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot/bot.py; fi &
+
+
+sh ~/.local/scripts/zfs_snapshot.sh &
+
+sleep 5 && plank &

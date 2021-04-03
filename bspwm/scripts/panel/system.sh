@@ -18,19 +18,6 @@ else
     width=$WIDTH
 fi
 
-fgcolor="#000000"
-bgcolor="#ffffff"
-monitorbgcolor="#005500"
-monitorfgcolor="#ffffff"
-workspaceactive="#0000ff"
-workspaceocbginactive="#dddddd"
-workspaceocfginactive="#333333"
-workspacebginactive="#aaaaaa"
-workspacefginactive="#555555"
-font="NotoSansMono:size=9:antialias=true"
-colRed500='#f44336'
-colYellow500='#ffeb3b'
-colBlue500='#2196f3'
 parameters="  -x $xpos -y $ypos -h $height -w $width" 
 parameters+=" -fn $font"
 parameters+=" -ta r -bg $bgcolor -fg $fgcolor"

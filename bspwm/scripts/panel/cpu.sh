@@ -28,7 +28,7 @@ do
     else
         MOUTPUT="^bg()^fg()"
     fi
-    COUTPUT+="^ca(1, ~/.config/bspwm/scripts/panel/clicks/cpu.sh)C:$CPU%^ca()"
+    COUTPUT+="^ca(3, ~/.config/bspwm/scripts/panel/clicks/cpu.sh)^ca(1, ~/.config/bspwm/scripts/panel/clicks/cpu-1.sh)C:^ca()$CPU%^ca()"
     COUTPUT+="^bg()^fg()"
     MOUTPUT+="^ca(1, ~/.config/bspwm/scripts/panel/clicks/mem.sh)M:$MEM%^ca()"
     MOUTPUT+="^bg()^fg()"
