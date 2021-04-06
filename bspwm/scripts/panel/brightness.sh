@@ -10,7 +10,7 @@ while read -r line;
 do
     VOLUME=$(pamixer --get-volume-human)
     BRIGHTNESS=$(cat /sys/class/backlight/intel_backlight/brightness)
-    BRIGHTNESS="$(echo $BRIGHTNESS/19200 | bc)"
+    BRIGHTNESS="$(echo $BRIGHTNESS*100/19200.0 | bc)%"
     echo VOLUME:"V:^ca(1, /home/arya/.config/bspwm/scripts/panel/clicks/volume.sh) $VOLUME ^ca()" > /tmp/bspwm_panel
     echo BRIGHTNESS:"^ca(1, /home/arya/.config/bspwm/scripts/panel/clicks/brightness.sh) Br:$BRIGHTNESS ^ca()" > /tmp/bspwm_panel
 
