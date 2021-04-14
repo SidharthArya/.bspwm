@@ -66,8 +66,9 @@ do
                 text+="^bg(#123456)^fg(#ffffff)^ca(1, bspc node focused -g marked)^ca(2, bspc node focused -g sticky)^ca(3, bspc node focused -g private) f $(echo $i | cut -b 2- )  ^ca()^ca()^ca()"
                 ;;
         esac
+	text+="^fg()^bg()"
     done
-    text+="^bg()^fg()"
+    text+="^bg()^fg() $(xtitle) ^fg()^bg()"
     echo $text
 done < <(bspc subscribe report)  | dzen2 $parameters
 
