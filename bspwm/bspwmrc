@@ -51,4 +51,4 @@ if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot
 sh ~/.local/scripts/zfs_snapshot.sh &
 
 sleep 5 && plank &
-emacs --script ~/.emacs.d/scripta/diet &
+emacs --script ~/.emacs.d/scripts/diet &
