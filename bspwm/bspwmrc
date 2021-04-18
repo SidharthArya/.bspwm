@@ -52,3 +52,5 @@ sh ~/.local/scripts/zfs_snapshot.sh &
 
 sleep 5 && plank &
 emacs --script ~/.emacs.d/scripts/diet &
+# Locker
+xss-lock slock &

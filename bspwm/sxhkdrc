@@ -187,6 +187,8 @@ XF86AudioRaiseVolume
         
 XF86AudioLowerVolume
         sh ~/.config/sxhkd/scripts/volume.sh decrease
+super + a; shift + d
+	 emacsclient -e "(my-notify-diet)" || emacs --script ~/.emacs.d/scripts/diet
 
 hyper + a; d
 	 emacs --script ~/.emacs.d/scripts/daily
