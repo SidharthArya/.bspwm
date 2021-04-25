@@ -1,11 +1,11 @@
 #!/usr/bin/env sh
 alias st "st -f NotoSansMono:size=12"
 xsetroot -cursor_name left_ptr
-pcmanfm --desktop &
+# pcmanfm --desktop &
 
 #nitrogen --restore
 
-if ! pgrep picom; then picom; fi &
+#if ! pgrep picom; then picom; fi &
 #if ! pgrep plank; then plank; fi &
 if ! pgrep dunst; then dunst; fi &
 source ~/.config/sxhkd/scripts/file_manager.sh
@@ -50,7 +50,7 @@ if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot
 
 sh ~/.local/scripts/zfs_snapshot.sh &
 
-sleep 5 && plank &
+#sleep 5 && plank &
 emacs --script ~/.emacs.d/scripts/diet &
 # Locker
 xss-lock slock &
