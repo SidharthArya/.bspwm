@@ -3,7 +3,7 @@ alias st "st -f NotoSansMono:size=12"
 xsetroot -cursor_name left_ptr
 # pcmanfm --desktop &
 
-#nitrogen --restore
+nitrogen --restore
 
 #if ! pgrep picom; then picom; fi &
 #if ! pgrep plank; then plank; fi &
