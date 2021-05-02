@@ -37,6 +37,8 @@ bash ~/.config/bspwm/scripts/panel/brightness.sh  &
 bash ~/.config/bspwm/scripts/panel/points.sh  &
 bash ~/.config/bspwm/scripts/panel/assets.sh  &
 bash ~/.config/bspwm/scripts/panel/crypto.sh  &
+
+kill %1
 while read -r line
       do
           case $line in

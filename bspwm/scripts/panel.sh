@@ -9,6 +9,7 @@ export fgdarkcolor="#e2e2e7"
 export height=24
 export bgcolor="#111115"
 export greencolor="#1EC337"
+export redcolor="#f44336"
 export bluecolor="#0A82FF"
 export bluelightcolor="#409CFF"
 export greenfgcolor=$bgcolor
