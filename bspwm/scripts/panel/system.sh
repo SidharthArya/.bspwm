@@ -30,15 +30,6 @@ TEMP=""
 BRIGHTNESS=""
 VOLUME=""
 CRYPTO=""
-bash ~/.config/bspwm/scripts/panel/battery.sh  &
-bash ~/.config/bspwm/scripts/panel/cpu.sh  &
-bash ~/.config/bspwm/scripts/panel/date.sh  &
-bash ~/.config/bspwm/scripts/panel/brightness.sh  &
-bash ~/.config/bspwm/scripts/panel/points.sh  &
-bash ~/.config/bspwm/scripts/panel/assets.sh  &
-bash ~/.config/bspwm/scripts/panel/crypto.sh  &
-
-kill %1
 while read -r line
       do
           case $line in
@@ -66,4 +57,14 @@ while read -r line
           esac
           echo "$CRYPTO $POINTS $ASSETS $BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
                   
-done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters
+done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters &
+
+bash ~/.config/bspwm/scripts/panel/battery.sh  &
+bash ~/.config/bspwm/scripts/panel/cpu.sh  &
+bash ~/.config/bspwm/scripts/panel/date.sh  &
+bash ~/.config/bspwm/scripts/panel/brightness.sh  &
+bash ~/.config/bspwm/scripts/panel/points.sh  &
+bash ~/.config/bspwm/scripts/panel/assets.sh  &
+bash ~/.config/bspwm/scripts/panel/crypto.sh  &
+
+fg 1
