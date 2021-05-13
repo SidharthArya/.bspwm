@@ -45,12 +45,12 @@ sh ~/.config/bspwm/scripts/panel.sh &
 sh ~/.config/sxhkd/scripts/session_start.sh
 
 mpv /usr/share/sounds/freedesktop/stereo/service-login.oga
-if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot/bot.py; fi &
+#if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot/bot.py; fi &
+if ! pgrep -f covid.py;then python ~/.config/covid/covid.py; fi &
+if ! pgrep -f vacc.py;then python ~/.config/covid/vacc.py; fi &
 
 
-sh ~/.local/scripts/zfs_snapshot.sh &
 
 #sleep 5 && plank &
-emacs --script ~/.emacs.d/scripts/diet &
 # Locker
 xss-lock slock &

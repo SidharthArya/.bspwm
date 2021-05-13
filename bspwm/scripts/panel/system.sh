@@ -65,6 +65,6 @@ bash ~/.config/bspwm/scripts/panel/date.sh  &
 bash ~/.config/bspwm/scripts/panel/brightness.sh  &
 bash ~/.config/bspwm/scripts/panel/points.sh  &
 bash ~/.config/bspwm/scripts/panel/assets.sh  &
-bash ~/.config/bspwm/scripts/panel/crypto.sh  &
+# bash ~/.config/bspwm/scripts/panel/crypto.sh  &
 
 fg 1

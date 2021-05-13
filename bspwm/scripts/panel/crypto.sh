@@ -31,7 +31,7 @@ do
                           do
                               curl "https://api.telegram.org/bot$(cat /home/arya/Desktop/.crypto_telcred)/sendMessage?chat_id=$i&text=Target $C of $T reached at $CRYPTO on $(date)"
                           done
-                          }
+                          } &&
             NOTIFYT=false
             
             
@@ -43,9 +43,9 @@ do
 
                           for i in $(cat /home/arya/Desktop/.crypto_send);
                           do
-                              curl "https://api.telegram.org/bot$(cat /home/arya/Desktop/.crypto_telcred)/sendMessage?chat_id=$i&text=Loss $C of $T reached at $CRYPTO on $(date)"
-                          done
-                          }
+                              curl "https://api.telegram.org/bot$(cat /home/arya/Desktop/.crypto_telcred)/sendMessage?chat_id=$i&text=Loss $C of $L reached at $CRYPTO on $(date)"
+                          done 
+                          } &&
             NOTIFYL=false
         else
             COLOR="^bg()^fg()"
