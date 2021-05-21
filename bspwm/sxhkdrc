@@ -325,8 +325,8 @@ super + a; shift + p
 
 super + a; V
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
-# super + backslash
-#       sh ~/.config/sxhkd/scripts/showdesktop.sh
+super + backslash
+      sh ~/.config/sxhkd/scripts/showdesktop.sh
 super + d
       bspc desktop next.occupied -f
 super + shift + d

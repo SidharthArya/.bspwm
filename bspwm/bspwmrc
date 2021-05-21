@@ -40,13 +40,13 @@ bspc config borderless_monocle false
 bspc config focused_border_color "#c2c2c7"
 bspc config normal_border_color "#111115"
 bspc config border_width 2
-sh ~/.config/bspwm/scripts/layouts.sh tall
+# sh ~/.config/bspwm/scripts/layouts.sh tall
 sh ~/.config/bspwm/scripts/panel.sh &
 sh ~/.config/sxhkd/scripts/session_start.sh
 
 mpv /usr/share/sounds/freedesktop/stereo/service-login.oga
 #if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot/bot.py; fi &
-if ! pgrep -f covid.py;then python ~/.config/covid/covid.py; fi &
+#if ! pgrep -f covid.py;then python ~/.config/covid/covid.py; fi &
 if ! pgrep -f vacc.py;then python ~/.config/covid/vacc.py; fi &
 
 
