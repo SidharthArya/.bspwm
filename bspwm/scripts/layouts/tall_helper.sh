@@ -13,7 +13,7 @@ do
             bspc node focused -n $(bspc query -N -n .local.leaf.\!window);
             echo Removing
             ;;
-        node_flag)
+        node_state)
             flag=$(echo $line | awk '{print $5}') 
             state=$(echo $line | awk '{print $6}')
             echo $flag $state
@@ -38,6 +38,22 @@ do
                     echo Adding
             ;;
             esac
+            elif [[ $flag == "floating" ]];
+            echo Hello
+            then
+                if [[ $state == "on" ]];
+                then
+                    if [[ $(bspc query -N -n) == $(bspc query -N -n @/1) ]];
+                    then
+                    bspc node @/ -i
+                    bspc node $(bspc query -N -n last.local.leaf.\!floating) -n $(bspc query -N -n .local.leaf.\!window);
+                    else
+                    bspc node @/2 -i
+                    bspc node $(bspc query -N -n last.local.leaf.\!floating) -n $(bspc query -N -n .local.leaf.\!window);
+                    fi
+                else
+                    echo No
+                fi
             fi
     esac
-done < <(bspc subscribe node_add node_remove node_flag)
+done < <(bspc subscribe node_add node_remove node_state)
