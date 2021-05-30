@@ -13,7 +13,7 @@ do
             bspc node focused -n $(bspc query -N -n .local.leaf.\!window);
             echo Removing
             ;;
-        node_state)
+        node_flag)
             flag=$(echo $line | awk '{print $5}') 
             state=$(echo $line | awk '{print $6}')
             echo $flag $state
@@ -35,25 +35,38 @@ do
                     bspc node focused -n $(bspc query -N -n .local.leaf.\!window);
                     bspc node @/2 -B;
                     bspc node -s biggest.local;
-                    echo Adding
+                    echo Unhiding
             ;;
             esac
-            elif [[ $flag == "floating" ]];
-            echo Hello
+
+            fi
+            ;;
+            node_state)
+            
+            flag=$(echo $line | awk '{print $5}') 
+            state=$(echo $line | awk '{print $6}')
+            echo $flag $state
+            if [[ $flag == "tiled" ]];
             then
-                if [[ $state == "on" ]];
+                if [[ $state == "off" ]];
                 then
                     if [[ $(bspc query -N -n) == $(bspc query -N -n @/1) ]];
                     then
-                    bspc node @/ -i
-                    bspc node $(bspc query -N -n last.local.leaf.\!floating) -n $(bspc query -N -n .local.leaf.\!window);
+                    bspc node @/1 -i
+                    bspc node last.local.leaf.\!floating -n $(bspc query -N -n .local.leaf.\!window);
+                    bspc node @/2 -B;
+                    bspc node last.local.leaf.\!floating -s biggest.local;
                     else
-                    bspc node @/2 -i
-                    bspc node $(bspc query -N -n last.local.leaf.\!floating) -n $(bspc query -N -n .local.leaf.\!window);
+                    bspc node @/2 -B;
                     fi
+                    
                 else
-                    echo No
+                    bspc node @/2 -i
+                    bspc node focused -n $(bspc query -N -n .local.leaf.\!window);
+                    bspc node -s biggest.local;
+                    bspc node @/2 -B;
                 fi
             fi
+            ;;
     esac
-done < <(bspc subscribe node_add node_remove node_state)
+done < <(bspc subscribe node_add node_remove node_state node_flag)
