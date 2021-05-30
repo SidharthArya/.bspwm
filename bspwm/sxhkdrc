@@ -84,7 +84,7 @@ super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0|bspc node -z right -20 0,bottom 0 20,top 0 -20,right 20 0}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
@@ -147,6 +147,8 @@ hyper + a;z
       sh ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
 hyper + a;e
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
+hyper + a;i
+      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Chat emacs --config chat
 hyper + a;l
       sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
 hyper + a;o
