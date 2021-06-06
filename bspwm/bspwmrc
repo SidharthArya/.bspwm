@@ -32,7 +32,7 @@ bspc rule -a Plank layer=above
 bspc config split_ratio          0.54
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
-# bspc config pointer_follows_monitor true
+bspc config pointer_follows_monitor true
 bspc config initial_polarity first_child
 bspc config gapless_monocle true
 bspc config removal_adjustment false
