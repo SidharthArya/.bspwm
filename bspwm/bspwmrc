@@ -53,4 +53,4 @@ if ! pgrep -f vacc.py;then python ~/.config/covid/vacc.py; fi &
 
 #sleep 5 && plank &
 # Locker
-xss-lock slock &
+xss-lock ~/.config/sxhkd/scripts/lock.sh &
