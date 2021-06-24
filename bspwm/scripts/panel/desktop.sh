@@ -4,6 +4,8 @@ screenWidth=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | s
 screenHeight=$(xdpyinfo | grep 'dimensions' | egrep -o "[0-9]+x[0-9]+ pixels" | egrep -o "x[0-9]*" | sed "s/x//")
 monitorbgcolor=$fgcolor
 monitorfgcolor=$bgcolor
+monitorbgcolorinactive="#555"
+monitorfgcolorinactive="#999"
 workspaceactive=$bluecolor
 workspaceocbginactive="#dddddd"
 workspaceocfginactive=$fgdarkcolor
@@ -34,41 +36,55 @@ parameters="  -x $xpos -y $ypos -h $height -w $width"
 parameters+=" -fn $font"
 parameters+=" -ta l -bg $bgcolor -fg $fgcolor"
 parameters+=" -title-name dzentop -dock -xs $SCREEN"
+declare -A workspaces
 while read -r line;
 do
+    mcount=0
+    dcount=0
+    wrest=""
+    monitor=""
     text=""
     for i in $(echo $line | cut -c 2- | sed 's/\:/\n/g');
     do
         
         case $i in
             M*)
-                text+="^bg($monitorbgcolor)^fg($monitorfgcolor) $(echo $i | cut -b 2- ) "
+                mcount=$(( $mcount + 1 ))
+                monitor+="^bg($monitorbgcolor)^fg($monitorfgcolor) $(echo $i | cut -b 2- ) "
                 ;;
             m*)
-                text+="^bg()^fg()^ca(1,bspc monitor $(echo $i | cut -b 2-) -f) $(echo $i | cut -b 2- ) ^ca()"
+                mcount=$(( $mcount + 1 ))
+                monitor+="^bg($monitorbgcolorinactive)^fg($monitorfgcolorinactive)^ca(1,bspc monitor $(echo $i | cut -b 2-) -f) $(echo $i | cut -b 2- ) ^ca()"
                 ;;
             f*)
-                text+="^bg($bgcolor)^fg($workspacefginactive)^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()"
+                [ ${i:1} -lt 10 ] 2>/dev/null && workspaces[${i:1}]="^bg($bgcolor)^fg($workspacefginactive)^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()" || wrest+="^bg($bgcolor)^fg($workspacefginactive)^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()"
                 ;;
             F*)
-                text+="^bg($colBlue500)^fg($workspaceocfginactive)^ca(1, bspc desktop ${i:1}) $(echo $i | cut -b 2- ) ^ca()"
+                [ ${i:1} -lt 10 ] 2>/dev/null && workspaces[${i:1}]="^bg($colBlue500)^fg($workspaceocfginactive)^ca(1, bspc desktop ${i:1}) $(echo $i | cut -b 2- ) ^ca()" || wrest+="^bg($colBlue500)^fg($workspaceocfginactive)^ca(1, bspc desktop ${i:1}) $(echo $i | cut -b 2- ) ^ca()"
                 ;;
             o*)
-                text+="^bg($workspaceinactive)^fg()^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()"
+                [ ${i:1} -lt 10 ] 2>/dev/null && workspaces[${i:1}]="^bg($workspaceinactive)^fg()^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()" || wrest+="^bg($workspaceinactive)^fg()^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()"
                 ;;
             O*)
-                text+="^bg($workspaceactive)^fg()^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()"
+                [ ${i:1} -lt 10 ] 2>/dev/null && workspaces[${i:1}]="^bg($workspaceactive)^fg()^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()" || wrest+="^bg($workspaceactive)^fg()^ca(1, bspc desktop ${i:1} -f) $(echo $i | cut -b 2- ) ^ca()"
                 ;;
-             L*)   
-                text+="^bg(#ff55aa)^fg(#000000)^ca(1,bspc desktop -l next) $(echo $i | cut -b 2- ) ^ca()"
+            L*)
+                [[ $mcount == $SCREEN ]] && text+="^bg(#ff55aa)^fg(#000000)^ca(1,bspc desktop -l next) $(echo $i | cut -b 2- ) ^ca()"
                 ;;
              G*)   
-                text+="^bg(#123456)^fg(#ffffff)^ca(1, bspc node focused -g marked)^ca(2, bspc node focused -g sticky)^ca(3, bspc node focused -g private) f $(echo $i | cut -b 2- )  ^ca()^ca()^ca()"
+                [[ $mcount == $SCREEN ]] && text+="^bg(#123456)^fg(#ffffff)^ca(1, bspc node focused -g marked)^ca(2, bspc node focused -g sticky)^ca(3, bspc node focused -g private) f $(echo $i | cut -b 2- )  ^ca()^ca()^ca()"
                 ;;
         esac
 	text+="^fg()^bg()"
     done
+    wtext=""
+    for j in {1..9};
+    do
+        wtext+="${workspaces[$j]}"
+    done
+    wtext+="${workspaces[0]}"
+    wtext+=$wrest
     text+="^bg()^fg() $(xtitle) ^fg()^bg()"
-    echo $text
+    echo $monitor $wtext $text
 done < <(bspc subscribe report)  | dzen2 $parameters
 

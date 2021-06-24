@@ -9,7 +9,7 @@ nitrogen --restore
 #if ! pgrep plank; then plank; fi &
 if ! pgrep dunst; then dunst; fi &
 source ~/.config/sxhkd/scripts/file_manager.sh
-fcitx -d
+fcitx5 -d
 # Keyboard
 xrdb -merge ~/.Xresources
 #bash ~/.config/bspwm/scripts/hypertoggle.sh init &
