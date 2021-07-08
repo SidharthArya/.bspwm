@@ -5,7 +5,7 @@ xsetroot -cursor_name left_ptr
 
 nitrogen --restore
 
-#if ! pgrep picom; then picom; fi &
+if ! pgrep picom; then picom; fi &
 #if ! pgrep plank; then plank; fi &
 if ! pgrep dunst; then dunst; fi &
 source ~/.config/sxhkd/scripts/file_manager.sh

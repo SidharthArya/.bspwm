@@ -67,7 +67,7 @@ super + shift + m; c
            sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -c
 
 super + shift +m; r
-      sh ~/.config/sxhkd/scripts/bspc_query_op.sh receptacle-insert-all-marked
+      bash ~/.config/sxhkd/scripts/bspc_query_op.sh receptacle-insert-all-marked
 
 super + shift + p
       bspc node -g private
@@ -144,15 +144,15 @@ super + shift + grave
 	bspc node -d last.local -f
         
 hyper + a;z
-      sh ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
 hyper + a;e
-      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 hyper + a;i
-      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Chat emacs --config chat
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Chat emacs --config chat
 hyper + a;l
-      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
 hyper + a;o
-      sh ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 # wclass News emacs --config news
 ## super + g;f
 ##       sh ~/.config/sxhkd/scripts/bookmarks.sh
@@ -177,7 +177,7 @@ super + w
 super + i
       bspc node -i
 super + shift + i
-      sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate 'next.leaf.!window' -k
+      bash ~/.config/sxhkd/scripts/bspc_query_op.sh operate 'next.leaf.!window' -k
 
 ## super + d; e; i
 ##       bspc node -i
@@ -294,19 +294,19 @@ super + shift + Return
 
 
 super + a; f
-      (sh ~/.config/sxhkd/scripts/scratchpad.sh class tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
+      (bash ~/.config/sxhkd/scripts/scratchpad.sh class tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
-        sh ~/.config/bspwm/scripts/financepanel.sh 
+        bash ~/.config/bspwm/scripts/financepanel.sh 
 super + a;n
-	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
+	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 
 super + a;m
-	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Mail emacs --config mail
+	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass Mail emacs --config mail
 
 super + a;t
-	sh ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
+	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
 super + a; b
-	sh ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
+	bash ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
 
 super + a;shift + b
 	sh ~/.local/scripts/points-use.sh
