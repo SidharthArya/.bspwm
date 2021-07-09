@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 CPU_OK_BG="#060"
 CPU_HIGH_BG="#600"

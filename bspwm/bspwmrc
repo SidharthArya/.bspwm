@@ -47,6 +47,8 @@ sh ~/.config/sxhkd/scripts/session_start.sh
 mpv /usr/share/sounds/freedesktop/stereo/service-login.oga
 #if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot/bot.py; fi &
 #if ! pgrep -f covid.py;then python ~/.config/covid/covid.py; fi &
+
+if ! pgrep -f vacc.py; then nix-shell -p python3 python3.pkgs.pandas python3.pkgs.requests python3.pkgs.python-telegram-bot --command "python ~/.config/covid/vacc.py"; fi &
 if ! pgrep -f vacc.py;then python ~/.config/covid/vacc.py; fi &
 
 

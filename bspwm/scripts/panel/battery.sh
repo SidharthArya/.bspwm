@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 BATTERY_LOW_BG="#600"
 BATTERY_OK_BG="#060"
 BATTERY_HIGH_BG=$greencolor
