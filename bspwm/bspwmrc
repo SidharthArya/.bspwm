@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 alias st "st -f NotoSansMono:size=12"
 xsetroot -cursor_name left_ptr
 # pcmanfm --desktop &
