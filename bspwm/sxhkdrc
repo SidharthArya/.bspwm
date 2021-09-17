@@ -96,6 +96,10 @@ super + Tab
 	bspc node next.window.local.\!hidden  -f 
 super + shift + Tab
 	bspc node prev.window.local.\!hidden -f
+super + alt + Tab
+	bspc node next.window.\!hidden  -f 
+super + alt + shift + Tab
+	bspc node prev.window.\!hidden -f
 super + hyper + Tab
 	bspc node -f prev.window.local || bspc node -f older.window.local 
         
