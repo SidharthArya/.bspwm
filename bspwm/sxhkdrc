@@ -312,6 +312,9 @@ super + a;t
 super + a; b
 	bash ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
 
+super + a; F
+	st -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
+
 super + a;shift + b
 	sh ~/.local/scripts/points-use.sh
 hyper + shift + b
