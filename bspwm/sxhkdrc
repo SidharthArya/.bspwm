@@ -366,3 +366,6 @@ super + shift + t
 
 super + t
       sh ~/.config/bspwm/scripts/helpers/trayer.sh
+
+super + shift + a
+      dmenu_run
