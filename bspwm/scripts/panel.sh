@@ -41,7 +41,7 @@ do
     #sh ~/.config/bspwm/scripts/panel/finance.sh bottom $COUNTER &
 done
 
-trayer --edge top --widthtype request --height $height --distance 4 --transparent on --alpha 0 --tint 0x${fgcolor:1} --padding 10 &
+trayer --edge top --widthtype request --height $height --transparent on --alpha 0 --tint 0x${fgcolor:1} --padding 10 &
 
 sleep 10
 for i in $(xdo id -N trayer);
