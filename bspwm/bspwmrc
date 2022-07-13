@@ -30,6 +30,10 @@ bspc rule -a Webcam:* state=floating
 bspc rule -a *:Calculator state=floating
 bspc rule -a *:PyCalculator state=floating 
 bspc rule -a Plank layer=above
+bspc rule -a Emacs desktop=2
+bspc rule -a st-256color desktop=1
+bspc rule -a 'google-chrome' desktop=3
+
 bspc config split_ratio          0.54
 bspc config gapless_monocle      true
 bspc config ignore_ewmh_focus true
