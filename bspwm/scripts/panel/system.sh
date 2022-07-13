@@ -45,14 +45,15 @@ while read -r line
                       ;;
               BRIGHTNESS:*) BRIGHTNESS=${line##BRIGHTNESS:}
                             ;;
-              VOLUME:*) VOLUME=${line##VOLUME:}
-                        ;;
+              # VOLUME:*) VOLUME=${line##VOLUME:}
+              #           ;;
               CRYPTO:*) CRYPTO=${line##CRYPTO:}
                         ;;
               POINTS:*) POINTS=${line##POINTS:}
                         ;;
-              ASSETS:*) ASSETS=${line##ASSETS:}
-                        ;;
+              # ASSETS:*) ASSETS=${line##ASSETS:}
+              #           ;;
+              
               *) ;;
           esac
           echo "$CRYPTO $POINTS $ASSETS $BRIGHTNESS $VOLUME $TEMP $BATTERY $CPU $MEM $DATE "
@@ -64,7 +65,7 @@ bash ~/.config/bspwm/scripts/panel/cpu.sh  &
 bash ~/.config/bspwm/scripts/panel/date.sh  &
 bash ~/.config/bspwm/scripts/panel/brightness.sh  &
 bash ~/.config/bspwm/scripts/panel/points.sh  &
-bash ~/.config/bspwm/scripts/panel/assets.sh  &
+# bash ~/.config/bspwm/scripts/panel/assets.sh  &
 # bash ~/.config/bspwm/scripts/panel/crypto.sh  &
 
 fg 1
