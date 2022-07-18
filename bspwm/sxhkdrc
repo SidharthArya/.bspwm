@@ -292,7 +292,7 @@ super + a;a
 	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -e tmux
 
 super + shift + Return
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
@@ -310,7 +310,7 @@ super + a;m
 super + a;t
 	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
 super + a; b
-	bash ~/.config/sxhkd/scripts/scratchpad.sh class qutebrowser qutebrowser
+	bash ~/.config/sxhkd/scripts/scratchpad.sh class Luakit luakit
 
 super + a; F
 	st -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
