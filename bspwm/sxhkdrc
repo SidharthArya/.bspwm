@@ -310,7 +310,7 @@ super + a;m
 super + a;t
 	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
 super + a; b
-	bash ~/.config/sxhkd/scripts/scratchpad.sh class Luakit luakit
+	bash ~/.config/sxhkd/scripts/scratchpad.sh class "Google-chrome" google-chrome-stable
 
 super + a; F
 	st -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
