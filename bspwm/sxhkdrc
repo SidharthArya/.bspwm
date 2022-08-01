@@ -150,13 +150,11 @@ super + shift + grave
 hyper + a;z
       bash ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
 hyper + a;e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  class Editor st -c Editor -e nvim
 hyper + a;i
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Chat emacs --config chat
 hyper + a;l
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
-hyper + a;o
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs
 # wclass News emacs --config news
 ## super + g;f
 ##       sh ~/.config/sxhkd/scripts/bookmarks.sh
@@ -302,7 +300,7 @@ super + a; f
 hyper + shift + f
         bash ~/.config/bspwm/scripts/financepanel.sh 
 super + a;n
-	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
+	bash ~/.config/sxhkd/scripts/scratchpad.sh class News st -c News -e newsboat
 
 super + a;m
 	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass Mail emacs --config mail
