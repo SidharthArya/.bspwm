@@ -303,10 +303,10 @@ super + a;n
 	bash ~/.config/sxhkd/scripts/scratchpad.sh class News st -c News -e newsboat
 
 super + a;m
-	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass Mail emacs --config mail
+	bash ~/.config/sxhkd/scripts/scratchpad.sh class Mail st -c Mail -e neomutt
 
 super + a;t
-	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass Tracking emacs --config tracking
+	bash ~/.config/sxhkd/scripts/scratchpad.sh class Task st -c Task -e taskwarrior-tui
 super + a; b
 	bash ~/.config/sxhkd/scripts/scratchpad.sh class "Google-chrome" google-chrome-stable
 
