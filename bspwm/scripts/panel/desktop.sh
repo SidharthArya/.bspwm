@@ -86,5 +86,5 @@ do
     wtext+=$wrest
     text+="^bg()^fg() $(xtitle) ^fg()^bg()"
     echo $monitor $wtext $text
-done < <(bspc subscribe report)  | dzen2 $parameters
+done < <(bspc subscribe report) | dzen2 $parameters
 

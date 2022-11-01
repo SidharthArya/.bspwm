@@ -4,6 +4,10 @@ super + a; r
 
 super + a; R
       rofi -show combi -theme gruvbox-dark -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
+super + a;o
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs --config org
+super + a;e
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  class Editor st -c Editor -e bash -c "nvim"
 super + shift + a
       sh ~/.config/sxhkd/scripts/run.sh
 
@@ -149,8 +153,6 @@ super + shift + grave
         
 hyper + a;z
       bash ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
-hyper + a;e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  class Editor st -c Editor -e nvim
 hyper + a;i
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Chat emacs --config chat
 hyper + a;l
@@ -300,10 +302,10 @@ super + a; f
 hyper + shift + f
         bash ~/.config/bspwm/scripts/financepanel.sh 
 super + a;n
-	bash ~/.config/sxhkd/scripts/scratchpad.sh class News st -c News -e newsboat
+	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
 
 super + a;m
-	bash ~/.config/sxhkd/scripts/scratchpad.sh class Mail st -c Mail -e neomutt
+	bash ~/.config/sxhkd/scripts/scratchpad.sh class Mail emacs --config mail
 
 super + a;t
 	bash ~/.config/sxhkd/scripts/scratchpad.sh class Task st -c Task -e taskwarrior-tui
