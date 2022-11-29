@@ -6,9 +6,11 @@ xsetroot -cursor_name left_ptr
 
 nitrogen --restore
 
-# if ! pgrep picom; then picom; fi &
+if ! pgrep picom; then picom; fi &
 #if ! pgrep plank; then plank; fi &
-# if ! pgrep dunst; then dunst; fi &
+if ! pgrep dunst; then dunst; fi &
+if ! pgrep unclutter; then unclutter; fi &
+
 source ~/.config/sxhkd/scripts/file_manager.sh
 fcitx5 -d
 # Keyboard
@@ -26,13 +28,17 @@ bspc rule -a fzf state=fullscreen,floating
 bspc rule -a Zathura state=tiled
 bspc rule -a *:Files state=floating
 bspc rule -a tabbed state=floating
-bspc rule -a Webcam:* state=floating
+bspc rule -a "*:Webcam" state=floating
 bspc rule -a *:Calculator state=floating
 bspc rule -a *:PyCalculator state=floating 
 bspc rule -a Plank layer=above
 bspc rule -a Emacs desktop=2
 bspc rule -a st-256color desktop=1
 bspc rule -a 'google-chrome' desktop=3
+bspc rule -a discord desktop=0
+bspc rule -a Slack desktop=0
+bspc rule -a "*:News" desktop=9
+bspc rule -a "*:Mail" desktop=9
 
 bspc config split_ratio          0.54
 bspc config gapless_monocle      true
@@ -60,3 +66,14 @@ if ! pgrep -f vacc.py; then nix-shell -p python3 python3.pkgs.pandas python3.pkg
 #sleep 5 && plank &
 # Locker
 xss-lock ~/.config/sxhkd/scripts/lock.sh &
+# Network Manager
+nm-applet &
+# bluetooth
+blueman-applet &
+
+# Unclutter
+
+# Autostarts
+dex -a
+
+conky -c ~/.config/bspwm/scripts/conky/workspace-details.conf &

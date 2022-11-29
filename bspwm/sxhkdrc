@@ -7,7 +7,10 @@ super + a; R
 super + a;o
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs --config org
 super + a;e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  class Editor st -c Editor -e bash -c "nvim"
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  class "Code - Insiders" code-insiders
+
+super + a;l
+      bash ~/Documents/Scripts/Work/sagemaker.sh
 super + shift + a
       sh ~/.config/sxhkd/scripts/run.sh
 
@@ -302,7 +305,7 @@ super + a; f
 hyper + shift + f
         bash ~/.config/bspwm/scripts/financepanel.sh 
 super + a;n
-	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass News emacs --config news
+	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass News bash ~/.config/bspwm/scripts/news.sh
 
 super + a;m
 	bash ~/.config/sxhkd/scripts/scratchpad.sh class Mail emacs --config mail
@@ -322,7 +325,7 @@ hyper + shift + b
 hyper + control + b
       qutebrowser "$(echo |rofi -dmenu -p 'Search')"
 super + a; c
-	~/.config/sxhkd/scripts/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.config/sxhkd/scripts/rcalculator.sh
+	~/.config/sxhkd/scripts/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.cargo/bin/kalker
         
 hyper + shift + c
 	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator termite --name PyCalculator  -e  ~/.config/sxhkd/scripts/calculator.sh
