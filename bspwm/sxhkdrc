@@ -7,7 +7,7 @@ super + a; R
 super + a;o
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs --config org
 super + a;e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  class "Code - Insiders" code-insiders
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  class "Editor" st -c Editor -e "zsh -c nvim"
 
 super + a;l
       bash ~/Documents/Scripts/Work/sagemaker.sh
@@ -292,10 +292,10 @@ hyper + ctrl + XF86Favorites
       pkill -f
 
 super + a;a
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -g 151x42 -e tmux
 
 super + shift + Return
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -n Terminal -e tmux
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st  -f "NotoSansMono:size=12" -n Terminal -g 151x42 -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
