@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 export _JAVA_AWT_WM_NONREPARENTING=1
-alias st "st -f NotoSansMono:size=12"
+alias st "st -f SourceCodePro:size=12"
 xsetroot -cursor_name left_ptr
 # pcmanfm --desktop &
 
 nitrogen --restore
 
-if ! pgrep picom; then picom; fi &
+# if ! pgrep picom; then picom; fi &
 #if ! pgrep plank; then plank; fi &
 if ! pgrep dunst; then dunst; fi &
 if ! pgrep unclutter; then unclutter; fi &
@@ -33,7 +33,7 @@ bspc rule -a "*:Webcam" state=floating
 bspc rule -a *:Calculator state=floating
 bspc rule -a *:PyCalculator state=floating 
 bspc rule -a Plank layer=above
-bspc rule -a Emacs desktop=2
+# bspc rule -a Emacs desktop=2
 bspc rule -a st-256color desktop=1
 bspc rule -a 'google-chrome' desktop=3
 bspc rule -a discord desktop=0

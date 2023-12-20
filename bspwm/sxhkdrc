@@ -1,19 +1,19 @@
 # Windows Specific
-super + a; r
-      rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
+# super + a; r
+#       rofi -show run -theme dmenu -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
+# 
+# super + a; R
+#       rofi -show combi -theme gruvbox-dark -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
+# super + a;e
+#       bash ~/.config/sxhkd/scripts/scratchpad.sh  class "Editor" st -c Editor -e "zsh -c nvim"
+# 
+# super + a;l
+#       bash ~/Documents/Scripts/Work/sagemaker.sh
+# super + shift + a
+#       sh ~/.config/sxhkd/scripts/run.sh
 
-super + a; R
-      rofi -show combi -theme gruvbox-dark -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
-super + a;o
+super + o
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs --config org
-super + a;e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  class "Editor" st -c Editor -e "zsh -c nvim"
-
-super + a;l
-      bash ~/Documents/Scripts/Work/sagemaker.sh
-super + shift + a
-      sh ~/.config/sxhkd/scripts/run.sh
-
 super + r
       pkill -USR1 -x sxhkd
         
@@ -25,29 +25,36 @@ super + shift + b
 super + shift + n
       bspc node -B
 
-super + o
-      echo | dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate
+# super + o
+#       echo | dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate
 
 super + u
         bspc node next.urgent -f 
+super + q
+	 bspc node -c
 super + shift + q
-	 bspc quit && pkill -f panel
-super + {_,shift + }c
-	bspc node -{c,k}
+	 bspc node -k
+# super + shift + q
+# 	 bspc quit && pkill -f panel
 
 super + {hyper + }c
 	bspc node $(bspc query -N -n next.window) -c
 super + space
+	rofi -show combi -theme Monokai
+super + w
 	bspc desktop -l next
+
+super + shift + w
+	bspc desktop -l prev
 
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
-super + Return
-	bspc node -s biggest.local
+# super + Return
+# 	bspc node -s biggest.local
 
 
-super + {shift + x,ctrl + x,f,x}
+super + {a,shift + a,z,plus}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 super + ctrl + c
@@ -78,6 +85,7 @@ super + shift +m; r
 
 super + shift + p
       bspc node -g private
+
 super + s
       bspc node -g sticky
 
@@ -138,14 +146,18 @@ super + semicolon
 super + shift + semicolon
       bspc node focused -d prev.local -f
 
-super + shift + apostrophe
-      bspc node focused -d next.local -f
+# super + shift + apostrophe
+#       bspc node focused -d next.local -f
 super + e
-      bspc desktop next.\!occupied -f
+      bash ~/.config/sxhkd/scripts/scratchpad.sh  class Editor st -n Editor -e nvim
+      
+      
+# super + e
+#       bspc desktop next.\!occupied -f
 super + shift + e
       bspc node focused -d next.\!occupied -f
-super + apostrophe
-      bspc desktop -f next.local
+# super + apostrophe
+#       bspc desktop -f next.local
 super + shift + bracket{left,right}
 	bspc node focused -m {next,prev} -f 
 super + grave
@@ -277,11 +289,11 @@ super + n
 super + {Prior, Next}
 	picom-trans -c {+5,-5}
 
-super + minus
+super + slash
 	bspc node -l below
-super + plus
-	bspc node -l above
-super + equal
+super + backslash
+	bspc node -l below
+super + @apostrophe
 	bspc node -l normal
 
 hyper + XF86Favorites
@@ -294,13 +306,13 @@ hyper + ctrl + XF86Favorites
 super + a;a
 	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -g 151x42 -e tmux
 
-super + shift + Return
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st  -f "NotoSansMono:size=12" -n Terminal -g 151x42 -e tmux
+super + Return
+	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st  -f "SourceCodePro:size=12" -n Terminal -g 151x42 -e tmux
 ## super + d; b
 ##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
 
-super + a; f
+super + f
       (bash ~/.config/sxhkd/scripts/scratchpad.sh class tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
         bash ~/.config/bspwm/scripts/financepanel.sh 
@@ -337,8 +349,8 @@ super + a; shift + p
 
 super + a; V
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
-super + backslash
-      sh ~/.config/sxhkd/scripts/showdesktop.sh
+## super + backslash
+##       sh ~/.config/sxhkd/scripts/showdesktop.sh
 super + d
       bspc desktop next.occupied -f
 super + shift + d
