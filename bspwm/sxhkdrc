@@ -313,7 +313,7 @@ super + Return
 
 
 super + f
-      (bash ~/.config/sxhkd/scripts/scratchpad.sh class tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/sxhkd/scripts/nnn.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
+      (bash ~/.config/sxhkd/scripts/scratchpad.sh class tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/nnn/file_manager.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
         bash ~/.config/bspwm/scripts/financepanel.sh 
 super + a;n
