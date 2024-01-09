@@ -14,6 +14,13 @@
 
 super + o
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs --config org
+
+super + c
+      bash ~/.config/sxhkd/scripts/scratchpad.sh class ChatGPT bash ~/.config/bspwm/scripts/helpers/webapp.sh https://chat.openai.com ChatGPT
+
+super + d
+      bash ~/.config/sxhkd/scripts/scratchpad.sh class Discord bash ~/.config/bspwm/scripts/helpers/webapp.sh https://discord.app Discord
+	    
 super + r
       pkill -USR1 -x sxhkd
         
@@ -33,7 +40,7 @@ super + u
 super + q
 	 bspc node -c
 super + shift + q
-	 bspc node -k
+	 bspc node -k 
 # super + shift + q
 # 	 bspc quit && pkill -f panel
 
@@ -351,10 +358,10 @@ super + a; V
       ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
 ## super + backslash
 ##       sh ~/.config/sxhkd/scripts/showdesktop.sh
-super + d
-      bspc desktop next.occupied -f
-super + shift + d
-      bspc desktop prev.occupied -f
+# super + d
+#       bspc desktop next.occupied -f
+# super + shift + d
+#       bspc desktop prev.occupied -f
 
 
 super + g
