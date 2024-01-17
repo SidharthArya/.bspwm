@@ -15,10 +15,17 @@
 super + o
       bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs --config org
 
-super + c
+hyper + e
       bash ~/.config/sxhkd/scripts/scratchpad.sh class ChatGPT bash ~/.config/bspwm/scripts/helpers/webapp.sh https://chat.openai.com ChatGPT
 
-super + d
+hyper + a
+      bash ~/.config/sxhkd/scripts/scratchpad.sh class Colab bash ~/.config/bspwm/scripts/helpers/webapp.sh https://colab.research.google.com Colab
+hyper + m
+      bash ~/.config/sxhkd/scripts/scratchpad.sh class Mail bash ~/.config/bspwm/scripts/helpers/webapp.sh https://gmail.com Mail
+hyper + q
+     bash ~/.config/sxhkd/scripts/scratchpad.sh class Keep bash ~/.config/bspwm/scripts/helpers/webapp.sh https://keep.google.com Keep 
+
+hyper + d
       bash ~/.config/sxhkd/scripts/scratchpad.sh class Discord bash ~/.config/bspwm/scripts/helpers/webapp.sh https://discord.app Discord
 	    
 super + r
@@ -156,7 +163,7 @@ super + shift + semicolon
 # super + shift + apostrophe
 #       bspc node focused -d next.local -f
 super + e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh class Editor bash ~/.config/nvim/start.sh
+      bash ~/.config/sxhkd/scripts/scratchpad.sh title Editor bash ~/.config/nvim/start.sh
       
       
 # super + e
