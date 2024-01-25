@@ -222,6 +222,10 @@ super + shift + i
 
 XF86AudioRaiseVolume
         sh ~/.config/sxhkd/scripts/volume.sh increase
+
+XF86Calculator
+	~/.config/sxhkd/scripts/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.cargo/bin/kalker
+        
         
 XF86AudioLowerVolume
         sh ~/.config/sxhkd/scripts/volume.sh decrease
