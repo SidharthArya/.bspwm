@@ -5,28 +5,28 @@
 # super + a; R
 #       rofi -show combi -theme gruvbox-dark -font 'Noto Sans 14' -kb-cancel "Escape,super+a"
 # super + a;e
-#       bash ~/.config/sxhkd/scripts/scratchpad.sh  class "Editor" st -c Editor -e "zsh -c nvim"
+#       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  class "Editor" st -c Editor -e "zsh -c nvim"
 # 
 # super + a;l
 #       bash ~/Documents/Scripts/Work/sagemaker.sh
 # super + shift + a
-#       sh ~/.config/sxhkd/scripts/run.sh
+#       sh ~/.config/bspwm/scripts/helpers/run.sh
 
 super + o
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Org emacs --config org
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  wclass Org emacs --config org
 
 hyper + e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh class ChatGPT bash ~/.config/bspwm/scripts/helpers/webapp.sh https://chat.openai.com ChatGPT
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class ChatGPT bash ~/.config/bspwm/scripts/helpers/webapp.sh https://chat.openai.com ChatGPT
 
 hyper + a
-      bash ~/.config/sxhkd/scripts/scratchpad.sh class Colab bash ~/.config/bspwm/scripts/helpers/webapp.sh https://colab.research.google.com Colab
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Colab bash ~/.config/bspwm/scripts/helpers/webapp.sh https://colab.research.google.com Colab
 hyper + m
-      bash ~/.config/sxhkd/scripts/scratchpad.sh class Mail bash ~/.config/bspwm/scripts/helpers/webapp.sh https://gmail.com Mail
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Mail bash ~/.config/bspwm/scripts/helpers/webapp.sh https://gmail.com Mail
 hyper + q
-     bash ~/.config/sxhkd/scripts/scratchpad.sh class Keep bash ~/.config/bspwm/scripts/helpers/webapp.sh https://keep.google.com Keep 
+     bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Keep bash ~/.config/bspwm/scripts/helpers/webapp.sh https://keep.google.com Keep 
 
 hyper + d
-      bash ~/.config/sxhkd/scripts/scratchpad.sh class Discord bash ~/.config/bspwm/scripts/helpers/webapp.sh https://discord.app Discord
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Discord bash ~/.config/bspwm/scripts/helpers/webapp.sh https://discord.app Discord
 	    
 super + r
       pkill -USR1 -x sxhkd
@@ -35,12 +35,12 @@ super + shift + r
       pkill -f panel; bspc wm -r
 
 super + shift + b
-      bash ~/.config/sxhkd/scripts/bar.sh
+      bash ~/.config/bspwm/scripts/helpers/bar.sh
 super + shift + n
       bspc node -B
 
 # super + o
-#       echo | dmenu | xargs sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate
+#       echo | dmenu | xargs sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate
 
 super + u
         bspc node next.urgent -f 
@@ -78,24 +78,24 @@ super + m
       bspc node -g marked && bspc config -n "$(bspc query -N -n .marked)" border-width 10
 
 super + shift + m; semicolon
-           echo | dmenu | xargs -I{} sh ~/.config/sxhkd/scripts/bspc_query_op.sh .marked
+           echo | dmenu | xargs -I{} sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh .marked
  
 super + shift + m; f
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -f
+           sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate .marked -f
 super + shift + m; F
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -d focused -f
+           sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate .marked -d focused -f
 super + shift + m; b
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -d focused -f
+           sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate .marked -d focused -f
 
 super + shift + m; {1-9,0}
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -d {1-9,0}
+           sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate .marked -d {1-9,0}
 super + shift + m; m
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh operate .marked -g marked=off
+           sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate .marked -g marked=off
 super + shift + m; c
-           sh ~/.config/sxhkd/scripts/bspc_query_op.sh marked nothing -c
+           sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh marked nothing -c
 
 super + shift +m; r
-      bash ~/.config/sxhkd/scripts/bspc_query_op.sh receptacle-insert-all-marked
+      bash ~/.config/bspwm/scripts/helpers/bspc_query_op.sh receptacle-insert-all-marked
 
 super + shift + p
       bspc node -g private
@@ -122,13 +122,13 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 super + Tab
-	bspc node next.window.local.\!hidden  -f 
+	bspc node next.window.local.\!hidden.\!floating  -f 
 super + shift + Tab
-	bspc node prev.window.local.\!hidden -f
+	bspc node prev.window.local.\!hidden.\!floating -f
 super + alt + Tab
-	bspc node next.window.\!hidden  -f 
+	bspc node next.window.local.\!hidden.floating  -f 
 super + alt + shift + Tab
-	bspc node prev.window.\!hidden -f
+	bspc node prev.window.local.\!hidden.floating  -f 
 super + hyper + Tab
 	bspc node -f prev.window.local || bspc node -f older.window.local 
         
@@ -144,7 +144,7 @@ super + control + {_,shift + } Tab
 
 # Desktops 
 super + {1-9,0}
-	~/.config/sxhkd/scripts/desktop.sh {1-9,0}
+	~/.config/bspwm/scripts/helpers/desktop.sh {1-9,0}
 
 super + shift + {1-9,0}
 	bspc node -d '{1-9,0}'
@@ -163,11 +163,11 @@ super + shift + semicolon
 # super + shift + apostrophe
 #       bspc node focused -d next.local -f
 super + e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh class code-oss code
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class code-oss code
       
       
 super + shift + e
-      bash ~/.config/sxhkd/scripts/scratchpad.sh class cursor ~/.local/bin/cursor
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class cursor ~/.local/bin/cursor
       
 # super + e
 #       bspc desktop next.\!occupied -f
@@ -184,25 +184,25 @@ super + shift + grave
 	bspc node -d last.local -f
         
 hyper + a;z
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  class Zathura
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  class Zathura
 hyper + a;i
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Chat emacs --config chat
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  wclass Chat emacs --config chat
 hyper + a;l
-      bash ~/.config/sxhkd/scripts/scratchpad.sh  wclass Doom emacs --config doom
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  wclass Doom emacs --config doom
 # wclass News emacs --config news
 ## super + g;f
-##       sh ~/.config/sxhkd/scripts/bookmarks.sh
+##       sh ~/.config/bspwm/scripts/helpers/bookmarks.sh
 super + {_,ctrl + ,shift +} z
-	{sh ~/.config/sxhkd/scripts/minimize.sh current, sh ~/.config/sxhkd/scripts/unminimize.sh cycle, sh ~/.config/sxhkd/scripts/unminimize.sh last}
+	{sh ~/.config/bspwm/scripts/helpers/minimize.sh current, sh ~/.config/bspwm/scripts/helpers/unminimize.sh cycle, sh ~/.config/bspwm/scripts/helpers/unminimize.sh last}
 
 super + w
-	sh ~/.config/sxhkd/scripts/windows.sh
+	sh ~/.config/bspwm/scripts/helpers/windows.sh
         
 ## super + s; s
-##       sh ~/.config/sxhkd/scripts/tts.sh start
+##       sh ~/.config/bspwm/scripts/helpers/tts.sh start
       
 ## super + s; shift + s
-##       sh ~/.config/sxhkd/scripts/tts.sh stop
+##       sh ~/.config/bspwm/scripts/helpers/tts.sh stop
       
 ## super + s; p
 ##       pavucontrol
@@ -213,7 +213,7 @@ super + w
 super + i
       bspc node -i
 super + shift + i
-      bash ~/.config/sxhkd/scripts/bspc_query_op.sh operate 'next.leaf.!window' -k
+      bash ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate 'next.leaf.!window' -k
 
 ## super + d; e; i
 ##       bspc node -i
@@ -221,14 +221,14 @@ super + shift + i
 ## 	st
 
 XF86AudioRaiseVolume
-        sh ~/.config/sxhkd/scripts/volume.sh increase
+        sh ~/.config/bspwm/scripts/helpers/volume.sh increase
 
 XF86Calculator
-	~/.config/sxhkd/scripts/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.cargo/bin/kalker
+	~/.config/bspwm/scripts/helpers/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.cargo/bin/kalker
         
         
 XF86AudioLowerVolume
-        sh ~/.config/sxhkd/scripts/volume.sh decrease
+        sh ~/.config/bspwm/scripts/helpers/volume.sh decrease
 super + a; shift + d
 	 emacsclient -e "(my-notify-diet)" || emacs --script ~/.emacs.d/scripts/diet
 
@@ -241,7 +241,7 @@ hyper + a;q
 ## 	 sh ~/.local/scripts/timenotify.sh
 
 ## super + r; c
-##          sh ~/.config/sxhkd/scripts/timers.sh concentration
+##          sh ~/.config/bspwm/scripts/helpers/timers.sh concentration
 
 ## super + r; C
 ##          pkill -f concentration && notify-send Timer "Timer Cancelled"
@@ -277,9 +277,9 @@ XF86Tools
 super + XF86Tools
 	redshift -x
 XF86AudioRaiseVolume
-	sh ~/.config/sxhkd/scripts/volume.sh increase 
+	sh ~/.config/bspwm/scripts/helpers/volume.sh increase 
 XF86AudioLowerVolume
-	sh ~/.config/sxhkd/scripts/volume.sh decrease
+	sh ~/.config/bspwm/scripts/helpers/volume.sh decrease
 XF86AudioMute
 	pactl list sinks | grep -q Mute:.no && pactl set-sink-mute 0 1 || pactl set-sink-mute 0 0 && echo 1 > /tmp/bspwm_brightness_volume
 XF86AudioMute
@@ -313,40 +313,40 @@ super + {Prior, Next}
 super + slash
 	bspc node -l below
 super + backslash
-	bspc node -l below
+	bspc node -l above
 super + @apostrophe
 	bspc node -l normal
 
 hyper + XF86Favorites
       sh ~/.local/scripts/webcam.sh
 hyper + shift + XF86Favorites
-      sh ~/.config/sxhkd/scripts/screenkey.sh
+      sh ~/.config/bspwm/scripts/helpers/screenkey.sh
 hyper + ctrl + XF86Favorites
       pkill -f
 
 super + a;a
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -g 151x42 -e tmux
+	~/.config/bspwm/scripts/helpers/scratchpad.sh title Terminal st -f "NotoSansMono:size=12" -n Terminal -g 151x42 -e tmux
 
 super + Return
-	~/.config/sxhkd/scripts/scratchpad.sh title Terminal st  -f "SourceCodePro:size=12" -n Terminal -g 151x42 -e tmux
+	~/.config/bspwm/scripts/helpers/scratchpad.sh title Terminal st  -f "SourceCodePro:size=12" -n Terminal -g 151x42 -e tmux
 ## super + d; b
-##       sh ~/.config/sxhkd/scripts/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
+##       sh ~/.config/bspwm/scripts/helpers/browse.sh $(cat ~/.cache/browsesh-cache |  dmenu)
 
 
 super + f
-      (bash ~/.config/sxhkd/scripts/scratchpad.sh class tabbed; ~/.config/sxhkd/scripts/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/nnn/file_manager.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
+      (bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class tabbed; ~/.config/bspwm/scripts/helpers/scratchpad.sh title Files st -f NotoSansMono:size=12 -n Files -e /home/arya/.config/nnn/file_manager.sh & ) && sleep 0.5 && xdo resize -w 500 -h 800 $(xdo id -n Files) && xdo move  -x 1400 -y 150 $(xdo id -n Files)
 hyper + shift + f
         bash ~/.config/bspwm/scripts/financepanel.sh 
 super + a;n
-	bash ~/.config/sxhkd/scripts/scratchpad.sh wclass News bash ~/.config/bspwm/scripts/news.sh
+	bash ~/.config/bspwm/scripts/helpers/scratchpad.sh wclass News bash ~/.config/bspwm/scripts/news.sh
 
 super + a;m
-	bash ~/.config/sxhkd/scripts/scratchpad.sh class Mail emacs --config mail
+	bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Mail emacs --config mail
 
 super + a;t
-	bash ~/.config/sxhkd/scripts/scratchpad.sh class Task st -c Task -e taskwarrior-tui
+	bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Task st -c Task -e taskwarrior-tui
 super + a; b
-	bash ~/.config/sxhkd/scripts/scratchpad.sh class "Google-chrome" google-chrome-stable
+	bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class "Google-chrome" google-chrome-stable
 
 super + a; F
 	st -e hledger-ui -f ~/Documents/Org/Ledger/finance.ledger
@@ -358,10 +358,10 @@ hyper + shift + b
 hyper + control + b
       qutebrowser "$(echo |rofi -dmenu -p 'Search')"
 super + a; c
-	~/.config/sxhkd/scripts/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.cargo/bin/kalker
+	~/.config/bspwm/scripts/helpers/scratchpad.sh title Calculator st -n Calculator -f NotoSansMono:size=12 -e  ~/.cargo/bin/kalker
         
 hyper + shift + c
-	~/.config/sxhkd/scripts/scratchpad.sh title PyCalculator termite --name PyCalculator  -e  ~/.config/sxhkd/scripts/calculator.sh
+	~/.config/bspwm/scripts/helpers/scratchpad.sh title PyCalculator termite --name PyCalculator  -e  ~/.config/bspwm/scripts/helpers/calculator.sh
 
 super + a; p
       rofi-pass
@@ -369,9 +369,9 @@ super + a; shift + p
       rofi-pass --insert
 
 super + a; V
-      ~/.config/sxhkd/scripts/scratchpad.sh class Pavucontrol pavucontrol
+      ~/.config/bspwm/scripts/helpers/scratchpad.sh class Pavucontrol pavucontrol
 ## super + backslash
-##       sh ~/.config/sxhkd/scripts/showdesktop.sh
+##       sh ~/.config/bspwm/scripts/helpers/showdesktop.sh
 # super + d
 #       bspc desktop next.occupied -f
 # super + shift + d

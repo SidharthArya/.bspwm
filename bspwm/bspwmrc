@@ -11,7 +11,7 @@ nitrogen --restore
 if ! pgrep dunst; then dunst; fi &
 if ! pgrep unclutter; then unclutter; fi &
 
-source ~/.config/sxhkd/scripts/file_manager.sh
+source ~/.config/bspwm/scripts/helpers/file_manager.sh
 fcitx5 -d
 # Keyboard
 xrdb -merge ~/.Xresources
@@ -51,7 +51,7 @@ bspc config normal_border_color "#111115"
 bspc config border_width 6
 # sh ~/.config/bspwm/scripts/layouts.sh tall
 sh ~/.config/bspwm/scripts/panel.sh &
-sh ~/.config/sxhkd/scripts/session_start.sh
+sh ~/.config/bspwm/scripts/helpers/session_start.sh
 
 mpv /usr/share/sounds/freedesktop/stereo/service-login.oga
 #if ! pgrep -f bot.py;then python ~/Private/Projects/Fun/telegram-video-check-bot/bot.py; fi &
@@ -63,7 +63,7 @@ if ! pgrep -f vacc.py; then nix-shell -p python3 python3.pkgs.pandas python3.pkg
 
 #sleep 5 && plank &
 # Locker
-xss-lock ~/.config/sxhkd/scripts/lock.sh &
+xss-lock ~/.config/bspwm/scripts/helpers/lock.sh &
 # Network Manager
 nm-applet &
 # bluetooth
