@@ -12,36 +12,52 @@
 # super + shift + a
 #       sh ~/.config/bspwm/scripts/helpers/run.sh
 
-super + o
-      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  wclass Org emacs --config org
 
+### Org Mode Emacs
+hyper + o
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  wclass Org emacs --config org
+### News Emacs
+hyper + n
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh  wclass News emacs --config news
+
+### ChatGPT
 hyper + e
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class ChatGPT bash ~/.config/bspwm/scripts/helpers/webapp.sh https://chat.openai.com ChatGPT
 
+### Google Colab
 hyper + a
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Colab bash ~/.config/bspwm/scripts/helpers/webapp.sh https://colab.research.google.com Colab
+
+### Mail
 hyper + m
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Mail bash ~/.config/bspwm/scripts/helpers/webapp.sh https://gmail.com Mail
+### Google Keep
 hyper + q
      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Keep bash ~/.config/bspwm/scripts/helpers/webapp.sh https://keep.google.com Keep 
-
+### Discord
 hyper + d
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Discord bash ~/.config/bspwm/scripts/helpers/webapp.sh https://discord.app Discord
-	    
+
+### Restart Keybindings sxhkd	    
 super + r
       pkill -USR1 -x sxhkd
         
+### Restart bspwm
 super + shift + r
       pkill -f panel; bspc wm -r
 
+### Restart Panel services
 super + shift + b
       bash ~/.config/bspwm/scripts/helpers/bar.sh
-super + shift + n
-      bspc node -B
+
+### Rebalance Nodes
+# super + shift + n
+#       bspc node -B
 
 # super + o
 #       echo | dmenu | xargs sh ~/.config/bspwm/scripts/helpers/bspc_query_op.sh operate
 
+# Goto Urgent Node
 super + u
         bspc node next.urgent -f 
 super + q
@@ -303,9 +319,12 @@ hyper + i;c
       st -e bash -c 'lscpu | less'
 hyper + i;l
       st -e bash -c 'dmesg | less'
+# Do Not Disturb Mode
 super + n
-	bash -c "if $(dunstctl is-paused); then notify-send 'Do not Disturb Mode Disabled'; else notify-send 'Do Not Disturb Enabled' && sleep 5; fi && dunstctl set-paused toggle"
-
+      bash ~/.config/bspwm/scripts/helpers/dnd.sh
+# Focus Mode
+hyper + backslash
+      bash ~/.config/bspwm/scripts/helpers/focus.sh 1500 500
 
 super + {Prior, Next}
 	picom-trans -c {+5,-5}
