@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+xmodmap ~/.Xmodmap
 export _JAVA_AWT_WM_NONREPARENTING=1
 alias st "st -f SourceCodePro:size=12"
 xsetroot -cursor_name left_ptr

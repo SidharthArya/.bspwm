@@ -25,7 +25,7 @@ hyper + e
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class ChatGPT bash ~/.config/bspwm/scripts/helpers/webapp.sh https://chat.openai.com ChatGPT
 
 ### Google Colab
-hyper + a
+hyper + c
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Colab bash ~/.config/bspwm/scripts/helpers/webapp.sh https://colab.research.google.com Colab
 
 ### Mail
@@ -324,7 +324,7 @@ super + n
       bash ~/.config/bspwm/scripts/helpers/dnd.sh
 # Focus Mode
 hyper + backslash
-      bash ~/.config/bspwm/scripts/helpers/focus.sh 1500 500
+      bash ~/.config/bspwm/scripts/helpers/focus.sh 900 300
 
 super + {Prior, Next}
 	picom-trans -c {+5,-5}
