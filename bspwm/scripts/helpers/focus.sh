@@ -30,6 +30,7 @@ then
 
 
 else
+    flash $ARG3
     echo $$ >> /tmp/focus_mode
     bash ~/.config/bspwm/scripts/helpers/dnd.sh 'Focus Mode'
     sleep $ARG1
