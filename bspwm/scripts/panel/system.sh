@@ -45,8 +45,8 @@ while read -r line
                       ;;
               BRIGHTNESS:*) BRIGHTNESS=${line##BRIGHTNESS:}
                             ;;
-              # VOLUME:*) VOLUME=${line##VOLUME:}
-              #           ;;
+              VOLUME:*) VOLUME=${line##VOLUME:}
+                        ;;
               CRYPTO:*) CRYPTO=${line##CRYPTO:}
                         ;;
               POINTS:*) POINTS=${line##POINTS:}
@@ -63,7 +63,8 @@ done < <(tail -f /tmp/bspwm_panel) | dzen2 $parameters &
 bash ~/.config/bspwm/scripts/panel/battery.sh  &
 bash ~/.config/bspwm/scripts/panel/cpu.sh  &
 bash ~/.config/bspwm/scripts/panel/date.sh  &
-# bash ~/.config/bspwm/scripts/panel/brightness.sh  &
+bash ~/.config/bspwm/scripts/panel/brightness.sh  &
+bash ~/.config/bspwm/scripts/panel/volume.sh  &
 bash ~/.config/bspwm/scripts/panel/points.sh  &
 # bash ~/.config/bspwm/scripts/panel/assets.sh  &
 # bash ~/.config/bspwm/scripts/panel/crypto.sh  &

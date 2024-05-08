@@ -1,7 +1,7 @@
 #!/usrbin/env bash
 ARG1=$1
 ARG2=$2
-
+URL=$ARG1
 google-chrome-stable --app=$ARG1 --app-id=$ARG2 --new-window &
 
 sleep 3

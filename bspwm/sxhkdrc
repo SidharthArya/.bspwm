@@ -24,6 +24,10 @@ hyper + n
 hyper + e
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class ChatGPT bash ~/.config/bspwm/scripts/helpers/webapp.sh https://chat.openai.com ChatGPT
 
+### Slack
+hyper + g
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Slack bash ~/.config/bspwm/scripts/helpers/webapp.sh https://app.slack.com/client Slack
+
 ### Google Colab
 hyper + c
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Colab bash ~/.config/bspwm/scripts/helpers/webapp.sh https://colab.research.google.com Colab
@@ -38,6 +42,8 @@ hyper + q
 hyper + d
       bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Discord bash ~/.config/bspwm/scripts/helpers/webapp.sh https://discord.app Discord
 
+hyper + r
+      bash ~/.config/bspwm/scripts/helpers/scratchpad.sh class Tracking bash ~/.config/bspwm/scripts/helpers/webapp.sh https://tracking.sidhartharya.com Tracking
 ### Restart Keybindings sxhkd	    
 super + r
       pkill -USR1 -x sxhkd
